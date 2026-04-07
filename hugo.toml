@@ -1,0 +1,18 @@
+baseURL = 'http://kasader.dev/'
+languageCode = 'en-us'
+title = 'kasader.dev'
+theme = "shibui"
+
+[params.author]
+  name = "Sasha Casada"
+  email = "kasadasasha@gmail.com"
+
+[menu]
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
