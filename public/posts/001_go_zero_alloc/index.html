@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html
+  lang="en-us"
+  dir="ltr"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<title>
+  Zero-Allocation Logging in Go | kasader.dev
+</title>
+ 
+<link rel="canonical" href="http://localhost:1313/posts/001_go_zero_alloc/" />
+
+
+<meta property="og:title" content="Zero-Allocation Logging in Go" />
+
+<meta
+  property="og:type"
+  content="article"
+/>
+<meta property="og:url" content="http://localhost:1313/posts/001_go_zero_alloc/" />
+ 
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Zero-Allocation Logging in Go" />
+      
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Zero-Allocation Logging in Go",
+    "url": "http:\/\/localhost:1313\/posts\/001_go_zero_alloc\/",
+    "datePublished": "2026-04-07T00:00:00Z",
+    "dateModified": "2026-04-07T00:00:00Z",
+    "author": {
+      "@type": "Person",
+      "name": "Sasha Casada"
+    }
+  }
+</script>
+ <link rel="apple-touch-icon" sizes="57x57" href="/favicon_io/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon_io/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon_io/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon_io/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon_io/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon_io/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon_io/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon_io/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon_io/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon_io/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+<link rel="manifest" href="/favicon_io/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicon_io/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+ 
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/custom.css">
+
+
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <header role="banner"><nav class="path-nav" aria-label="Breadcrumb">
+  <ol>
+    
+  
+    
+  
+    
+  
+  <li>
+    /
+    <a href="/">kasader.dev</a>
+    /
+  </li>
+
+  
+  <li>
+    
+    <a href="/posts/">Posts</a>
+    /
+  </li>
+
+  
+  <li class="current">
+    
+    <a href="/posts/001_go_zero_alloc/">Zero-Allocation Logging in Go</a>
+    
+  </li>
+
+  </ol>
+</nav>
+
+
+
+</header>
+    <main id="main-content" role="main">
+  <h1>Zero-Allocation Logging in Go</h1>
+  
+  <div class="terms-list">
+    <ul>
+        <li><a href="/tags/go/">#Go</a></li>
+        <li><a href="/tags/compilers/">#Compilers</a></li>
+    </ul>
+  </div>
+
+
+  
+  
+  
+  
+    <nav class="toc">
+      <strong>Table of contents</strong>
+      <div class="toc-content">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-setup">The Setup</a>
+      <ul>
+        <li><a href="#the-command-line-arguments-quirk">The <code>command-line-arguments</code> Quirk</a></li>
+      </ul>
+    </li>
+    <li><a href="#optimization-1-function-inlining--struct-initialization">Optimization 1: Function Inlining &amp; Struct Initialization</a></li>
+    <li><a href="#optimization-2-escape-analysis-and-the-stack">Optimization 2: Escape Analysis and the Stack</a></li>
+    <li><a href="#optimization-3-the-register-based-calling-convention">Optimization 3: The Register-Based Calling Convention</a>
+      <ul>
+        <li><a href="#takeaway">Takeaway</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </nav>
+  
+
+   
+   <h1 id="go-zero-allocation-logging-under-the-hood">Go Zero-Allocation Logging Under the Hood</h1>
+<p>Go&rsquo;s structured logging library (<code>log/slog</code>), although maybe kind of boring at first glance, is a really quite clever piece of standard library code. That is: if you dive into how exactly they are able to process log attributes with <strong>zero heap allocations</strong>. Although the solution (which was inspired by the <code>uber-go/zap</code> and <code>rs/zerolog</code> packages), and this way of using the  <code>log/slog.Logger</code> is usually not that important for generic logging use-cases, it is extremely well-optimized for any hot-path application.</p>
+<p>Thus, accordingly, I wanted to understand exactly how Go achieves this, as well as how the compiler optimizes away unnecessary overhead; so I wrote a quick mock logger implementation which is loosely based on <code>log/slog</code> and analyzed the output assembly via <a href="https://www.google.com/search?q=https://go.godbolt.org">compiler explorer (go.godbolt.org)</a> (shoutout to <a href="https://xania.org/MattGodbolt">Matt Godbolt</a>, btw).</p>
+<p>Below, I am going to walk through how the compiler avoids &ldquo;boxing&rdquo; (<a href="https://goperf.dev/01-common-patterns/interface-boxing/">allocating variables to the heap when converting to interfaces</a>), completely inlines function calls to save CPU cycles, and passes data between stack frames without copying entire arrays.</p>
+<h2 id="the-setup">The Setup</h2>
+<p>Here is a stripped-down version of how a zero-allocation logger takes in attributes. Instead of using <code>...any</code> (which forces Go to box primitives into interfaces on the heap), we define a concrete <code>intAttr</code> struct.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">p</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">myFunction</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;my message&#34;</span>, <span style="color:#a6e22e">newIntAttr</span>(<span style="color:#e6db74">&#34;k1&#34;</span>, <span style="color:#a6e22e">x</span>), <span style="color:#a6e22e">newIntAttr</span>(<span style="color:#e6db74">&#34;k2&#34;</span>, <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//go:noinline</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">msg</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">attrs</span> <span style="color:#f92672">...</span><span style="color:#a6e22e">intAttr</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">attr</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">attrs</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">attr</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">intAttr</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">key</span>   <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">value</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">newIntAttr</span>(<span style="color:#a6e22e">k</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">v</span> <span style="color:#66d9ef">int</span>) <span style="color:#a6e22e">intAttr</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">intAttr</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">key</span>:   <span style="color:#a6e22e">k</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">value</span>: <span style="color:#a6e22e">v</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>When we compile this, we get a fat block of Plan 9 Assembly (I suggest you follow along using the same code above on the site if you want to fully understand the process). But before we decode the output, let&rsquo;s first address the weird symbol naming.</p>
+<h3 id="the-command-line-arguments-quirk">The <code>command-line-arguments</code> Quirk</h3>
+<p>If you look at the raw assembly, you&rsquo;ll see memory locations and function calls prefixed with <code>command-line-arguments</code>, like this:</p>
+<p><code>CALL command-line-arguments.log(SB)</code> or <code>MOVQ DX, command-line-arguments..autotmp_8+40(SP)</code>.</p>
+<p>Why? In Go&rsquo;s assembly dialect, the assembler attaches human-readable symbols to memory locations to help the debugger and the Garbage Collector map machine code back to your source file. When you compile a standalone Go file without a properly initialized Go module (like in a compiler explorer sandbox), the compiler assigns it a default package name of <code>command-line-arguments</code>.</p>
+<p>The <code>..autotmp_8</code> simply means the compiler created a hidden, &ldquo;automatic temporary&rdquo; variable on the stack to hold our data. The CPU never sees these names; it only sees the raw memory offsets.</p>
+<hr>
+<h2 id="optimization-1-function-inlining--struct-initialization">Optimization 1: Function Inlining &amp; Struct Initialization</h2>
+<p>In our Go code, we call <code>newIntAttr(&quot;k1&quot;, x)</code> and <code>newIntAttr(&quot;k2&quot;, 2)</code>. You might expect the assembly to set up a stack frame, push arguments, jump to the <code>newIntAttr</code> function, and return a struct.</p>
+<p>The Go compiler is much smarter than that. It completely <strong>inlines</strong> the calls to save CPU cycles.</p>
+<p>A Go <code>string</code> is a 16-byte struct (an 8-byte pointer to the text, and an 8-byte length). Our <code>int</code> is 8 bytes. That means each <code>intAttr</code> struct is exactly 24 bytes. Because we pass two of them in our variadic <code>...intAttr</code> slice, the compiler needs 48 bytes of contiguous memory.</p>
+<p>Instead of calling <code>newIntAttr</code>, the compiler manually writes the data directly to the stack, byte by byte:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span>        <span style="color:#75715e">// --- Building the first intAttr: newIntAttr(&#34;k1&#34;, x) ---
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// Grab the pointer to the &#34;k1&#34; string bytes and put it in DX
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">LEAQ</span>    <span style="color:#66d9ef">go</span>:<span style="color:#66d9ef">string.</span><span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#66d9ef">k1</span><span style="color:#960050;background-color:#1e0010">&#34;</span>(<span style="color:#66d9ef">SB</span>), <span style="color:#66d9ef">DX</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Write the Pointer to SP+40
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">MOVQ</span>    <span style="color:#66d9ef">DX</span>, <span style="color:#66d9ef">command-line-arguments..autotmp_8</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">40</span>(<span style="color:#66d9ef">SP</span>) 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Write the string Length (2) to SP+48
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">MOVQ</span>    <span style="color:#66d9ef">$2</span>, <span style="color:#66d9ef">command-line-arguments..autotmp_8</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">48</span>(<span style="color:#66d9ef">SP</span>) 
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Write the integer value (x, held in AX) to SP+56
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">MOVQ</span>    <span style="color:#66d9ef">AX</span>, <span style="color:#66d9ef">command-line-arguments..autotmp_8</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">56</span>(<span style="color:#66d9ef">SP</span>) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// --- Building the second intAttr: newIntAttr(&#34;k2&#34;, 2) ---
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// Grab the pointer to the &#34;k2&#34; string bytes and put it in DX
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">LEAQ</span>    <span style="color:#66d9ef">go</span>:<span style="color:#66d9ef">string.</span><span style="color:#960050;background-color:#1e0010">&#34;</span><span style="color:#66d9ef">k2</span><span style="color:#960050;background-color:#1e0010">&#34;</span>(<span style="color:#66d9ef">SB</span>), <span style="color:#66d9ef">DX</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Write the Pointer to SP+64
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">MOVQ</span>    <span style="color:#66d9ef">DX</span>, <span style="color:#66d9ef">command-line-arguments..autotmp_8</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">64</span>(<span style="color:#66d9ef">SP</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Write the string Length (2) to SP+72
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">MOVQ</span>    <span style="color:#66d9ef">$2</span>, <span style="color:#66d9ef">command-line-arguments..autotmp_8</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">72</span>(<span style="color:#66d9ef">SP</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Write the integer value (2) to SP+80
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">MOVQ</span>    <span style="color:#66d9ef">$2</span>, <span style="color:#66d9ef">command-line-arguments..autotmp_8</span><span style="color:#960050;background-color:#1e0010">+</span><span style="color:#ae81ff">80</span>(<span style="color:#66d9ef">SP</span>)
+</span></span></code></pre></div><hr>
+<h2 id="optimization-2-escape-analysis-and-the-stack">Optimization 2: Escape Analysis and the Stack</h2>
+<p>Notice <em>where</em> it wrote those 48 bytes: <code>+40(SP)</code> up through <code>+80(SP)</code>. <code>SP</code> is our <strong>Stack Pointer</strong>.</p>
+<p>If we had passed our attributes as <code>...any</code> (the standard <code>fmt.Printf</code> approach), the compiler wouldn&rsquo;t know the size or type of the arguments at compile time. It would be forced to allocate them dynamically on the heap (a process called &ldquo;boxing&rdquo;), which requires the Garbage Collector to clean them up later.</p>
+<p>Because we used a concrete type (<code>intAttr</code>), the compiler&rsquo;s <strong>Escape Analysis</strong> kicked in. It realized this variadic slice never &ldquo;escapes&rdquo; the lifecycle of <code>myFunction</code> and <code>log</code>. Therefore, it entirely skips the <code>runtime.newobject</code> heap allocation and safely builds the array directly within <code>myFunction</code>&rsquo;s local stack space. This is the zero allocation we are looking for!</p>
+<hr>
+<h2 id="optimization-3-the-register-based-calling-convention">Optimization 3: The Register-Based Calling Convention</h2>
+<p>Now that we have a 48-byte backing array on <code>myFunction</code>&rsquo;s stack, how do we pass it to <code>log</code>? A common misconception is that the whole array is copied into the new function&rsquo;s stack frame.</p>
+<p>Thanks to Go&rsquo;s modern register-based ABI (Application Binary Interface), arguments are passed to functions via CPU registers whenever possible. Our <code>log</code> function expects two arguments: a <code>string</code> (Pointer, Length) and a <code>slice</code> (Pointer, Length, Capacity).</p>
+<p>Right before the <code>CALL</code> to <code>log</code>, the compiler packs these 5 words of data into 5 CPU registers:</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Register</strong></th>
+          <th><strong>Argument</strong></th>
+          <th><strong>Value</strong></th>
+          <th><strong>Assembly Instruction</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>AX</code></td>
+          <td><code>msg</code> Pointer</td>
+          <td>Address of <code>&quot;my message&quot;</code></td>
+          <td><code>LEAQ go:string.&quot;my message&quot;(SB), AX</code></td>
+      </tr>
+      <tr>
+          <td><code>BX</code></td>
+          <td><code>msg</code> Length</td>
+          <td>10</td>
+          <td><code>MOVL $10, BX</code></td>
+      </tr>
+      <tr>
+          <td><code>CX</code></td>
+          <td><code>attrs</code> Pointer</td>
+          <td>Address of the Stack Array</td>
+          <td><code>LEAQ command-line-arguments..autotmp_8+40(SP), CX</code></td>
+      </tr>
+      <tr>
+          <td><code>DI</code></td>
+          <td><code>attrs</code> Length</td>
+          <td>2</td>
+          <td><code>MOVL $2, DI</code></td>
+      </tr>
+      <tr>
+          <td><code>SI</code></td>
+          <td><code>attrs</code> Capacity</td>
+          <td>2</td>
+          <td><code>MOVQ DI, SI</code></td>
+      </tr>
+  </tbody>
+</table>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span>        <span style="color:#a6e22e">CALL</span>    <span style="color:#66d9ef">command-line-arguments.log</span>(<span style="color:#66d9ef">SB</span>)
+</span></span></code></pre></div><p>When execution jumps into <code>log</code>, the 48 bytes of array data are left untouched, sitting safely back in <code>myFunction</code>&rsquo;s stack frame. The <code>log</code> function simply uses the pointer passed in the <code>CX</code> register to reach &ldquo;up&rdquo; the stack and read the structs one by one.</p>
+<h3 id="takeaway">Takeaway</h3>
+<p>By passing a 24-byte slice header in registers rather than copying a whole 48-byte array across stack frames, and by avoiding the heap completely, Go keeps function calls blazingly fast. This combination of <strong>inlining</strong>, <strong>stack allocation</strong>, and <strong>register-passing</strong> is the exact same sauce that makes standard library packages like <code>log/slog</code> so performant.</p>
+<p>&hellip;and&hellip; so now you know!</p>
+
+   <div class="time">
+     <time datetime="2026-04-07">2026-04-07&nbsp;</time>
+
+     
+     
+       <span class="reading-time"> · 5 min read</span>
+     
+     
+     
+   </div>
+
+  
+  
+    <div class="comments">
+
+</div>
+  
+
+  
+    <div class="terminal-nav">
+      <div class="back-nav">
+        
+          <a href="/posts/" class="back-link">../</a>
+        
+      </div>
+    </div>
+  
+</main>
+    <footer role="contentinfo"><p role="contentinfo">
+  &copy; Copyright 2026 &middot;
+  <a href="https://github.com/ntk148v/shibui">shibui</a>
+</p>
+</footer>
+  </body>
+</html>

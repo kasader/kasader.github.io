@@ -1,35 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on kasader.dev</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on kasader.dev</description>
+    <title>Compilers on kasader.dev</title>
+    <link>http://localhost:1313/tags/compilers/</link>
+    <description>Recent content in Compilers on kasader.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>kasadasasha@gmail.com (Sasha Casada)</managingEditor>
     <webMaster>kasadasasha@gmail.com (Sasha Casada)</webMaster>
     <lastBuildDate>Tue, 07 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/compilers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zero-Allocation Logging in Go</title>
       <link>http://localhost:1313/posts/001_go_zero_alloc/</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate><author>kasadasasha@gmail.com (Sasha Casada)</author>
       <guid>http://localhost:1313/posts/001_go_zero_alloc/</guid>
       <description>&lt;h1 id=&#34;go-zero-allocation-logging-under-the-hood&#34;&gt;Go Zero-Allocation Logging Under the Hood&lt;/h1&gt;&#xA;&lt;p&gt;Go&amp;rsquo;s structured logging library (&lt;code&gt;log/slog&lt;/code&gt;), although maybe kind of boring at first glance, is a really quite clever piece of standard library code. That is: if you dive into how exactly they are able to process log attributes with &lt;strong&gt;zero heap allocations&lt;/strong&gt;. Although the solution (which was inspired by the &lt;code&gt;uber-go/zap&lt;/code&gt; and &lt;code&gt;rs/zerolog&lt;/code&gt; packages), and this way of using the  &lt;code&gt;log/slog.Logger&lt;/code&gt; is usually not that important for generic logging use-cases, it is extremely well-optimized for any hot-path application.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>My Test Post</title>
-      <link>http://localhost:1313/posts/1/</link>
-      <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate><author>kasadasasha@gmail.com (Sasha Casada)</author>
-      <guid>http://localhost:1313/posts/1/</guid>
-      <description>Hello</description>
-    </item>
-    <item>
-      <title></title>
-      <link>http://localhost:1313/posts/posts/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>kasadasasha@gmail.com (Sasha Casada)</author>
-      <guid>http://localhost:1313/posts/posts/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>

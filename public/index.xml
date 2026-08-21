@@ -18,6 +18,13 @@
       <description>&lt;p&gt;&lt;figure&gt;&#xA;  &lt;img&#xA;    src=&#34;../images/pfp.png&#34;&#xA;    alt=&#34;Profile Image&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    &#xA;  /&gt;&#xA;  &lt;figcaption&gt;Profile Image&lt;/figcaption&gt;&#xA;  &lt;/figure&gt;&#xA;&#xA;&lt;figure&gt;&#xA;  &lt;img&#xA;    src=&#34;../images/test-3.webp&#34;&#xA;    alt=&#34;Test Image&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    &#xA;  /&gt;&#xA;  &lt;figcaption&gt;Test Image&lt;/figcaption&gt;&#xA;  &lt;/figure&gt;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;Server-side engineer based in Tokyo. Lover of mirth and gaiety.&lt;/p&gt;&#xA;&lt;p&gt;My focus is on distributed systems, multiplayer networking, and cloud infrastructure. I primarily work with Go, C, Kubernetes, and Terraform.&lt;/p&gt;&#xA;&lt;p&gt;I studied Computer Science and Japanese at &lt;a href=&#34;https://www.swarthmore.edu/&#34;&gt;Swarthmore College&lt;/a&gt;, and spent time studying at &lt;a href=&#34;https://www.u-tokyo.ac.jp/en/&#34;&gt;The University of Tokyo&lt;/a&gt;. During my time at Swarthmore, I worked as a project manager and was on the board of the &lt;a href=&#34;https://sccs.swarthmore.edu&#34;&gt;Swarthmore College Computer Society (SCCS)&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Zero-Allocation Logging in Go</title>
+      <link>http://localhost:1313/posts/001_go_zero_alloc/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate><author>kasadasasha@gmail.com (Sasha Casada)</author>
+      <guid>http://localhost:1313/posts/001_go_zero_alloc/</guid>
+      <description>&lt;h1 id=&#34;go-zero-allocation-logging-under-the-hood&#34;&gt;Go Zero-Allocation Logging Under the Hood&lt;/h1&gt;&#xA;&lt;p&gt;Go&amp;rsquo;s structured logging library (&lt;code&gt;log/slog&lt;/code&gt;), although maybe kind of boring at first glance, is a really quite clever piece of standard library code. That is: if you dive into how exactly they are able to process log attributes with &lt;strong&gt;zero heap allocations&lt;/strong&gt;. Although the solution (which was inspired by the &lt;code&gt;uber-go/zap&lt;/code&gt; and &lt;code&gt;rs/zerolog&lt;/code&gt; packages), and this way of using the  &lt;code&gt;log/slog.Logger&lt;/code&gt; is usually not that important for generic logging use-cases, it is extremely well-optimized for any hot-path application.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>My Test Post</title>
       <link>http://localhost:1313/posts/1/</link>
       <pubDate>Fri, 13 Jun 2025 00:00:00 +0000</pubDate><author>kasadasasha@gmail.com (Sasha Casada)</author>

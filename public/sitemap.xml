@@ -5,19 +5,28 @@
     <loc>http://localhost:1313/about/</loc>
     <lastmod>2026-04-07T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/compilers/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/go/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-04-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/001_go_zero_alloc/</loc>
     <lastmod>2026-04-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
     <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/1/</loc>
-    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-06-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-06-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/theme/</loc>
