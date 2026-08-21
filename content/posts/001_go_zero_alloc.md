@@ -12,7 +12,7 @@ In the following sections, I am going to walk through how the Go compiler avoids
 
 ## Code Setup
 
-Here is a stripped-down look at how a zero-allocation logger takes in attributes. Instead of using a varadic type `T` set (`...any`) (which forces Go to box primitives into interfaces on the heap), we define a concrete `intAttr` struct.
+Here is a stripped-down look at how a zero-allocation logger takes in attributes. Instead of using a variadic type `T` set (`...any`) (which forces Go to box primitives into interfaces on the heap), we define a concrete `intAttr` struct.
 
 ```go
 package p
@@ -20,7 +20,7 @@ package p
 import "fmt"
 
 func myFunction(x int) int {
-	log("my message", newIntAttr("k1", x), newIntAttr("k2", 2))
+	log("my msg", newIntAttr("k1", x), newIntAttr("k2", 2))
 	return 0
 }
 
@@ -48,7 +48,6 @@ func newIntAttr(k string, v int) intAttr {
 *(I suggest you follow along using the same code above to fully understand this process).*
 
 Your prize for compiling this is a fat block of Plan 9 Assembly. But before we decode the output, let's first address the weird symbol naming.
-
 
 ### Checking Out `command-line-arguments`
 
@@ -98,7 +97,7 @@ Instead of calling `newIntAttr`, the compiler manually writes the data directly 
 
 ## Optimization 2: Escape Analysis and the Stack
 
-Notice _where_ it wrote those 48 bytes: `+40(SP)` up through `+80(SP)`. `SP` is our **Stack Pointer**.
+Notice *where* it wrote those 48 bytes: `+40(SP)` up through `+80(SP)`. `SP` is our **Stack Pointer**.
 
 If we had passed our attributes as `...any` (the standard `fmt.Printf` approach), the compiler wouldn't know the size or type of the arguments at compile time. It would be forced to allocate them dynamically on the heap (a process called "boxing"), which requires the Garbage Collector to clean them up later.
 
@@ -114,13 +113,13 @@ Thanks to Go's modern register-based ABI (Application Binary Interface), argumen
 
 Right before the `CALL` to `log`, the compiler packs these 5 words of data into 5 CPU registers:
 
-| **Register** | **Argument**     | **Value**                  | **Assembly Instruction**                            |
-| ------------ | ---------------- | -------------------------- | --------------------------------------------------- |
-| `AX`         | `msg` Pointer    | Address of `"my message"`  | `LEAQ go:string."my message"(SB), AX`               |
-| `BX`         | `msg` Length     | 10                         | `MOVL $10, BX`                                      |
-| `CX`         | `attrs` Pointer  | Address of the Stack Array | `LEAQ command-line-arguments..autotmp_8+40(SP), CX` |
-| `DI`         | `attrs` Length   | 2                          | `MOVL $2, DI`                                       |
-| `SI`         | `attrs` Capacity | 2                          | `MOVQ DI, SI`                                       |
+| **Reg**      | **Arg**     | **Value**            | **Assembly Instruction**                       |
+| ------------ | ----------- | -------------------- | ---------------------------------------------- |
+| `AX`         | `msg` Ptr   | `"my msg"` Addr.     | `LEAQ go:string."my msg"(SB), AX`              |
+| `BX`         | `msg` Len   | 10                   | `MOVL $10, BX`                                 |
+| `CX`         | `attrs` Ptr | Stack Array Addr.    | `LEAQ com...autotmp_8+40(SP), CX`              |
+| `DI`         | `attrs` Len | 2                    | `MOVL $2, DI`                                  |
+| `SI`         | `attrs` Cap | 2                    | `MOVQ DI, SI`                                  |
 
 ```asm
         CALL    command-line-arguments.log(SB)

@@ -76,8 +76,9 @@ pre code {
   .layout__second-sidebar {
     align-self: start;
     position: sticky;
-    top: var(--spacing-m);
-    max-height: calc(100svh - var(--spacing-xl));
+    padding-block-start: var(--spacing-m);
+    top: 0;
+    max-height: calc(100svh - var(--spacing-m));
     overflow-y: auto;
   }
 
@@ -135,11 +136,6 @@ pre code {
     padding-inline-start: var(--spacing-s);
   }
 
-  /* Vertical rhythm lives on the entries, not on the list boxes. Hanging it
-     off li margins made a parent and its first child sit flush (the nested ul
-     contributed nothing between them) while every other pair got a full gap.
-     Padding a block-level anchor spaces every entry identically regardless of
-     depth, and gives a full-width click target as a bonus. */
   a {
     display: block;
     padding-block: calc(var(--spacing-xxs) / 2);
@@ -150,6 +146,18 @@ pre code {
       text-decoration: underline;
     }
   }
+}
+
+/* Trim the leading above the cap height so a box's top edge IS the top of its
+   letters. The article <h1> carries ~10px of leading at its clamp()-scaled
+   size while the rail's label carries ~4px, so aligning their boxes still left
+   the label's letters sitting higher. Trimming both makes box alignment mean
+   letter alignment, and it holds at every viewport width — a fixed nudge
+   would not, since the h1's leading scales with its font-size. */
+.layout__main h1,
+.toc__title {
+  text-box-trim: trim-start;
+  text-box-edge: cap alphabetic;
 }
 
 /* Anchor jumps shouldn't land the heading flush against the viewport edge. */
