@@ -4,15 +4,15 @@ date: 2026-04-07
 tags: ["go", "compilers"]
 ---
 
-Go's structured logging library (`log/slog`), although maybe kind of boring at first glance, is a really quite clever piece of standard library code. That is: if you dive into how exactly they are able to process log attributes with **zero heap allocations**. Although the solution (which was inspired by the `uber-go/zap` and `rs/zerolog` packages), and this way of using the  `log/slog.Logger` is usually not that important for generic logging use-cases, it is extremely well-optimized for any hot-path application.
+Go's structured logging library (`log/slog`) is quite the clever piece of standard library code. This is thanks to the processing of log attributes `{key:value}` with **zero heap allocations**. And despite the `slog.Logger` interface (inspired by packages `uber-go/zap` and `rs/zerolog`) now long being the go-to idiom for any generic logging use-cases in Go; it is additionally highly-optimized for use in application hot-paths.
 
-Thus, accordingly, I wanted to understand exactly how Go achieves this, as well as how the compiler optimizes away unnecessary overhead; so I wrote a quick mock logger implementation which is loosely based on `log/slog` and analyzed the output assembly via [compiler explorer (go.godbolt.org)](https://www.google.com/search?q=https://go.godbolt.org) (shoutout to [Matt Godbolt](https://xania.org/MattGodbolt), btw).
+Wanting to know exactly how Go achieves this with the the compiler optimizing away unnecessary overhead, I wrote a quick mock logger following the `log/slog` implementation and analyzed the output assembly via [compiler explorer (go.godbolt.org)](https://www.google.com/search?q=https://go.godbolt.org) (thank you [Matt Godbolt](https://xania.org/MattGodbolt), sire).
 
-Below, I am going to walk through how the compiler avoids "boxing" ([allocating variables to the heap when converting to interfaces](https://goperf.dev/01-common-patterns/interface-boxing/)), completely inlines function calls to save CPU cycles, and passes data between stack frames without copying entire arrays.
+In the following sections, I am going to walk through how the Go compiler avoids common "interface boxing" ([allocating variables to the heap when converting to interfaces](https://goperf.dev/01-common-patterns/interface-boxing/)), fully inlines function calls to save CPU cycles, and passes data between stack frames without copying entire arrays.
 
-## The Setup
+## Code Setup
 
-Here is a stripped-down version of how a zero-allocation logger takes in attributes. Instead of using `...any` (which forces Go to box primitives into interfaces on the heap), we define a concrete `intAttr` struct.
+Here is a stripped-down look at how a zero-allocation logger takes in attributes. Instead of using a varadic type `T` set (`...any`) (which forces Go to box primitives into interfaces on the heap), we define a concrete `intAttr` struct.
 
 ```go
 package p
@@ -45,9 +45,12 @@ func newIntAttr(k string, v int) intAttr {
 }
 ```
 
-When we compile this, we get a fat block of Plan 9 Assembly (I suggest you follow along using the same code above on the site if you want to fully understand the process). But before we decode the output, let's first address the weird symbol naming.
+*(I suggest you follow along using the same code above to fully understand this process).*
 
-### The `command-line-arguments` Quirk
+Your prize for compiling this is a fat block of Plan 9 Assembly. But before we decode the output, let's first address the weird symbol naming.
+
+
+### Checking Out `command-line-arguments`
 
 If you look at the raw assembly, you'll see memory locations and function calls prefixed with `command-line-arguments`, like this:
 
@@ -127,6 +130,4 @@ When execution jumps into `log`, the 48 bytes of array data are left untouched, 
 
 ### Takeaway
 
-By passing a 24-byte slice header in registers rather than copying a whole 48-byte array across stack frames, and by avoiding the heap completely, Go keeps function calls blazingly fast. This combination of **inlining**, **stack allocation**, and **register-passing** is the exact same sauce that makes standard library packages like `log/slog` so performant.
-
-...and... so now you know!
+By passing a 24-byte slice header in registers rather than copying a whole 48-byte array across stack frames, and by avoiding the heap completely, Go keeps function calls blazingly fast. This combination of **inlining**, **stack allocation**, and **register-passing** is that which makes our `log/slog` so performant. Lovely, isn't it?
