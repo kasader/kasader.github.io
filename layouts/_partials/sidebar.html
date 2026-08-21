@@ -1,0 +1,14 @@
+{{/* Replaces the theme's section-listing sidebar with a table of contents.
+     Rendered into the theme's existing "side2" grid area. Skipped unless the
+     page has at least two headings, so stubs don't get an empty rail — the
+     matching :has() rule in _custom.css collapses the grid back to one column.
+     .Fragments.Identifiers is a flat list of every heading id at any depth,
+     so this stays correct whatever endLevel is set to. */}}
+{{ if and .IsPage (ge (len .Fragments.Identifiers) 2) -}}
+<aside class="sidebar layout__second-sidebar">
+<nav class="toc" aria-label="Table of contents">
+<p class="toc__title">{{ .Title }}</p>
+{{ .TableOfContents }}
+</nav>
+</aside>
+{{ end -}}

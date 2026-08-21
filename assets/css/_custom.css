@@ -1,3 +1,5 @@
+@import './syntax.css';
+
 /* Turn off the theme's extremely ugly cross-fade effects. */
 @view-transition {
   navigation: none;
@@ -8,4 +10,157 @@
    it. Both stacks are defined in the theme's _variables.css. */
 :root {
   --ff-headings: var(--old);
+
+  /* The theme's --color-border* scale is derived from the brand hue and lands
+     around oklch(0.41) even at its lightest — too heavy for a hairline. These
+     read as a rule rather than a frame. */
+  --rule-soft: light-dark(var(--color-grey-300), var(--color-grey-800));
+  --rule-firm: light-dark(var(--color-grey-400), var(--color-grey-700));
+}
+
+/* ── Code blocks ──────────────────────────────────────────────────────
+   The theme leaves <pre> unstyled apart from margins, and unlike <p> it
+   gets no max-width, so code ran wider than the prose beside it. Capping
+   at --max-line-width is exact here: ch resolves against the element's own
+   font, so 70ch of a monospace face is 70 code columns. */
+pre {
+  max-width: var(--max-line-width);
+  overflow-x: auto;
+  padding: var(--spacing-xs) var(--spacing-s);
+  border: 1px solid var(--rule-soft);
+  border-radius: var(--radius-s);
+  font-size: var(--fs-s);
+  line-height: 1.5;
+}
+
+pre code {
+  /* The wrapper paints the theme background; the code must not repaint it. */
+  background: none;
+  padding: 0;
+}
+
+/* Tables: the wrapper scrolls, the table stays a table. The theme ships
+   zero cell padding and no rules, so a dense table needs both to be read. */
+.table-wrap {
+  max-width: var(--max-line-width);
+  overflow-x: auto;
+  margin-block-end: var(--spacing-m);
+}
+
+.table-wrap table {
+  margin-block-end: 0;
+  font-size: var(--fs-s);
+}
+
+.table-wrap :is(th, td) {
+  padding: var(--spacing-xxs) var(--spacing-s) var(--spacing-xxs) 0;
+  border-block-end: 1px solid var(--rule-soft);
+}
+
+.table-wrap th {
+  border-block-end: 1px solid var(--rule-firm);
+  white-space: nowrap;
+}
+
+/* tbody-scoped: <thead>'s single row is also a :last-child, and an unscoped
+   rule here erased the header rule instead. */
+.table-wrap tbody tr:last-child :is(th, td) {
+  border-block-end: 0;
+}
+
+/* ── Table of contents ────────────────────────────────────────────────
+   The theme already reserves a "side2" grid column at >=999px; this just
+   makes it stick. align-self is load-bearing: grid items stretch by
+   default, and a stretched item can never become sticky. */
+@media (min-width: 999px) {
+  .layout__second-sidebar {
+    align-self: start;
+    position: sticky;
+    top: var(--spacing-m);
+    max-height: calc(100svh - var(--spacing-xl));
+    overflow-y: auto;
+  }
+
+  /* No TOC rendered (stub page) -> reclaim the column. */
+  .layout__sidebar-second:not(:has(.layout__second-sidebar)) {
+    grid-template-areas: 'head' 'nav' 'top' 'main' 'bottom' 'foot' 'notice';
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Below the sidebar breakpoint the theme stacks "side2" after "main", which
+   would bury the TOC at the foot of the article. Hoist it above instead. */
+@media (max-width: 998px) {
+  .layout__sidebar-second {
+    grid-template-areas: 'head' 'nav' 'top' 'side2' 'main' 'bottom' 'foot' 'notice';
+  }
+  /* Separate the hoisted TOC from the article below it. */
+  .toc {
+    border-block-end: 1px solid var(--rule-soft);
+    padding-block-end: var(--spacing-xs);
+    margin-block-end: var(--spacing-s);
+  }
+}
+
+.toc__title {
+  /* Rule tracks the text, not the column width. */
+  width: fit-content;
+  max-width: 100%;
+  font-family: var(--ff-headings);
+  font-size: var(--fs-s);
+  font-weight: var(--fw-bold);
+  line-height: var(--heading-line-height);
+  text-wrap: balance;
+  padding-block-end: var(--spacing-xxs);
+  margin-block-end: var(--spacing-xs);
+  border-block-end: 1px solid var(--rule-soft);
+}
+
+.toc {
+  font-size: var(--fs-s);
+
+  ul {
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block: 0;
+  }
+
+  li {
+    margin-block: 0;
+    text-wrap: pretty;
+  }
+
+  /* One level of nesting: indent only, no rule. */
+  ul ul {
+    padding-inline-start: var(--spacing-s);
+  }
+
+  /* Vertical rhythm lives on the entries, not on the list boxes. Hanging it
+     off li margins made a parent and its first child sit flush (the nested ul
+     contributed nothing between them) while every other pair got a full gap.
+     Padding a block-level anchor spaces every entry identically regardless of
+     depth, and gives a full-width click target as a bonus. */
+  a {
+    display: block;
+    padding-block: calc(var(--spacing-xxs) / 2);
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Anchor jumps shouldn't land the heading flush against the viewport edge. */
+:is(h2, h3, h4)[id] {
+  scroll-margin-block-start: var(--spacing-m);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

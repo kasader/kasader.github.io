@@ -1,0 +1,125 @@
+/* Chroma syntax colours — VS Code "Quiet Light".
+   Token values taken from microsoft/vscode quietlight-color-theme.json.
+   Dark-mode values are lightness-lifted counterparts of the same hues, so
+   the two schemes assign colour to the same roles. Swap freely: every value
+   is a light-dark(light, dark) pair. */
+
+.chroma {
+  --ql-bg:       light-dark(#ffffff, #1f1f1f);
+  --ql-fg:       light-dark(#333333, #d4d4d4);
+  --ql-comment:  light-dark(#aaaaaa, #7a7a7a);
+  --ql-doc:      light-dark(#448c27, #7cc262);
+  --ql-keyword:  light-dark(#4b69c6, #7ba2e8);
+  --ql-type:     light-dark(#7a3e9d, #c08fe0);
+  --ql-constant: light-dark(#9c5d27, #d9a05b);
+  --ql-function: light-dark(#aa3731, #e88b7d);
+  --ql-string:   light-dark(#448c27, #7cc262);
+  --ql-muted:    light-dark(#777777, #a0a0a0);
+  --ql-linenum:  light-dark(#6d705b, #8a8d78);
+  --ql-invalid:  light-dark(#cd3131, #f07171);
+  --ql-illegal:  light-dark(#660000, #c05050);
+  --ql-hl:       light-dark(#c9d0d9, #33393f);
+  --ql-deleted:  light-dark(#c73d20, #e07a5f);
+
+  background-color: var(--ql-bg);
+  color: var(--ql-fg);
+}
+
+/* Error / invalid */
+.chroma .err { color: var(--ql-invalid) }
+
+/* Lines and gutters */
+.chroma .line { display: flex }
+.chroma .hl { background-color: var(--ql-hl) }
+.chroma .ln,
+.chroma .lnt {
+  white-space: pre;
+  user-select: none;
+  margin-right: 0.4em;
+  padding: 0 0.4em;
+  color: var(--ql-linenum);
+}
+.chroma .lntd { vertical-align: top; padding: 0; margin: 0; border: 0 }
+.chroma .lntable { border-spacing: 0; padding: 0; margin: 0; border: 0 }
+.chroma .lnlinks { outline: none; text-decoration: none; color: inherit }
+
+/* Keywords and storage */
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kn,
+.chroma .kp,
+.chroma .kr { color: var(--ql-keyword) }
+
+/* Types */
+.chroma .kt { color: var(--ql-type) }
+
+/* Names */
+.chroma .na { color: light-dark(#8190a0, #9aa8b8); font-style: italic }
+.chroma .nc,
+.chroma .nn { color: var(--ql-type); font-weight: 700 }
+.chroma .no,
+.chroma .ni,
+.chroma .nl,
+.chroma .nb,
+.chroma .bp { color: var(--ql-constant) }
+.chroma .nd { color: var(--ql-type) }
+.chroma .nt { color: var(--ql-keyword) }
+.chroma .nv,
+.chroma .vc,
+.chroma .vg,
+.chroma .vi,
+.chroma .vm { color: var(--ql-type) }
+.chroma .nf,
+.chroma .fm { color: var(--ql-function); font-weight: 700 }
+.chroma .nx { color: var(--ql-fg) }
+
+/* Strings */
+.chroma .s,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .dl,
+.chroma .sd,
+.chroma .s2,
+.chroma .sh,
+.chroma .si,
+.chroma .sx,
+.chroma .s1 { color: var(--ql-string) }
+.chroma .se { color: var(--ql-muted) }
+.chroma .sr { color: var(--ql-keyword) }
+.chroma .ss { color: var(--ql-constant) }
+
+/* Numbers */
+.chroma .m,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .il,
+.chroma .mo { color: var(--ql-constant) }
+
+/* Operators and punctuation */
+.chroma .o { color: var(--ql-muted) }
+.chroma .ow { color: var(--ql-keyword) }
+.chroma .p { color: var(--ql-muted) }
+
+/* Comments */
+.chroma .c,
+.chroma .ch,
+.chroma .cm,
+.chroma .c1 { color: var(--ql-comment); font-style: italic }
+.chroma .cs { color: var(--ql-doc); font-style: italic }
+.chroma .cp,
+.chroma .cpf { color: var(--ql-comment) }
+
+/* Generic / diff */
+.chroma .gd { color: var(--ql-deleted) }
+.chroma .gi { color: var(--ql-doc) }
+.chroma .gh { color: var(--ql-function); font-weight: 700 }
+.chroma .go { color: var(--ql-muted) }
+.chroma .gr,
+.chroma .gt { color: var(--ql-illegal) }
+.chroma .ge { font-style: italic }
+.chroma .gs { font-weight: 700 }
+.chroma .gu { text-decoration: underline }

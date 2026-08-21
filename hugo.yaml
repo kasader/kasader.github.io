@@ -5,6 +5,28 @@ theme: "github.com/frjo/hugo-theme-zen/v7"
 locale: "en-US"
 defaultContentLanguage: "en"
 
+# Class-based highlighting (Hugo defaults to inline monokai styles, which
+# can't be themed). Colours live in assets/css/syntax.css.
+markup:
+  highlight:
+    noClasses: false
+    lineNos: false
+    tabWidth: 4
+  tableOfContents:
+    # h2..h6. startLevel stays at 2 because the page's <h1> is the front-matter
+    # title, already shown above the list.
+    startLevel: 2
+    endLevel: 6
+    ordered: false
+
+# The right-hand table of contents rides on the theme's second-sidebar grid
+# area, which is gated behind the "sidebar" param. Only posts want it.
+cascade:
+  - target:
+      path: /posts/**
+    params:
+      sidebar: true
+
 outputFormats:
   SearchIndex:
     mediaType: "application/json"
