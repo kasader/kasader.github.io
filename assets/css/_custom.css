@@ -1,0 +1,11 @@
+/* Turn off the theme's extremely ugly cross-fade effects. */
+@view-transition {
+  navigation: none;
+}
+
+/* Headings default to a sans stack; the body is already a serif. Iowan is a
+   warm old-style book face that sits with the body serif rather than against
+   it. Both stacks are defined in the theme's _variables.css. */
+:root {
+  --ff-headings: var(--old);
+}

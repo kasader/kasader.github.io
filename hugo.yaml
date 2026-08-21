@@ -1,6 +1,6 @@
 ---
 baseURL: "https://kasader.github.io/"
-title: "kasader.dev"
+title: "Kasaderic Kompendivm"
 theme: "github.com/frjo/hugo-theme-zen/v7"
 locale: "en-US"
 defaultContentLanguage: "en"
@@ -20,10 +20,11 @@ params:
   description: "Notes on Go, distributed systems, and infrastructure."
   dateformat: "2 January, 2006"
   feedlinks: true
+  logoWidth: 96
   mainSections:
     - posts
   mobileMenu: true
-  poweredby: true
+  poweredby: false
   submitted: true
   author:
     name: "Sasha Casada"
