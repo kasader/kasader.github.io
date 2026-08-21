@@ -25,6 +25,11 @@
             pkgs.dart-sass
             pkgs.gopls
             pkgs.golangci-lint
+
+            # Extra tooling for lint/styling
+            pkgs.markdownlint-cli2
+            pkgs.typos
+            pkgs.lychee
           ];
 
           shellHook = ''

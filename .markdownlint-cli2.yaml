@@ -1,0 +1,23 @@
+---
+config:
+  # Prose here is written one long line per paragraph; wrapping is the
+  # renderer's job, not the author's.
+  MD013: false
+  # Go sources are tab-indented, so fenced code blocks legitimately contain tabs.
+  MD010:
+    code_blocks: false
+  # The theme renders front-matter `title` as the page <h1>, so a second
+  # top-level heading in the body would be a duplicate h1.
+  MD025:
+    front_matter_title: "^\\s*title\\s*[:=]"
+
+globs:
+  - "**/*.md"
+
+# Honour .gitignore, which already excludes public/, resources/ and .direnv/
+# — the last of those holds read-only Nix store paths that error on --fix.
+gitignore: true
+
+ignores:
+  - "themes/**"
+  - "node_modules/**"
