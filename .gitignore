@@ -1,0 +1,9 @@
+# Hugo build output and caches
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# direnv's `use flake` cache
+.direnv/
+
+.DS_Store

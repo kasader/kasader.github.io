@@ -1,0 +1,41 @@
+---
+baseURL: "https://kasader.github.io/"
+title: "kasader.dev"
+theme: "github.com/frjo/hugo-theme-zen/v7"
+locale: "en-US"
+defaultContentLanguage: "en"
+
+outputFormats:
+  SearchIndex:
+    mediaType: "application/json"
+    baseName: "searchindex"
+    isPlainText: true
+    notAlternative: true
+
+outputs:
+  home: ["HTML", "RSS", "JSON", "SearchIndex"]
+  section: ["HTML", "RSS", "JSON"]
+
+params:
+  description: "Notes on Go, distributed systems, and infrastructure."
+  dateformat: "2 January, 2006"
+  feedlinks: true
+  mainSections:
+    - posts
+  mobileMenu: true
+  poweredby: true
+  submitted: true
+  author:
+    name: "Sasha Casada"
+
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - name: Posts
+      pageRef: /posts
+      weight: 20
+    - name: About
+      pageRef: /about
+      weight: 30
