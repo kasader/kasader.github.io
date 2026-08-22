@@ -1,3 +1,7 @@
+{{- /* feedlinks only renders where .AlternativeOutputFormats is non-empty —
+       i.e. home and section lists — so without the social links below, every
+       single page got an empty <footer>. */ -}}
+{{ partial "social-links.html" . }}
 {{ if $.Param "feedlinks" }}{{ partial "feedlinks.html" . }}{{ end -}}
 {{ with $.Param "footer" }}<p>{{ . | site.Home.RenderString }}</p>{{ end }}
 {{ if $.Param "poweredby" }}<p>Powered by <a href="https://gohugo.io/">Hugo</a> and the <a href="https://github.com/frjo/hugo-theme-zen">Zen theme</a>.</p>{{ end }}

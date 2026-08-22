@@ -9,6 +9,21 @@
    warm old-style book face that sits with the body serif rather than against
    it. Both stacks are defined in the theme's _variables.css. */
 :root {
+  /* The theme's grey ramp is oklch(L 0.01 0) -- chroma 0.01 at hue 0, i.e.
+     faintly red, including --color-black (body text) and --color-brand
+     (= grey-900, so every rule too). Invisible on hairlines, but a visible
+     pink cast on any filled area. Redefined at chroma 0 for a genuinely
+     neutral site; lightness values are untouched. */
+  --color-black: oklch(1% 0 0);
+  --color-grey-900: oklch(21% 0 0);
+  --color-grey-800: oklch(28% 0 0);
+  --color-grey-700: oklch(37% 0 0);
+  --color-grey-600: oklch(45% 0 0);
+  --color-grey-500: oklch(55% 0 0);
+  --color-grey-400: oklch(71% 0 0);
+  --color-grey-300: oklch(87% 0 0);
+  --color-grey-200: oklch(93% 0 0);
+
   --ff-headings: var(--old);
 
   /* The theme's --color-border* scale is derived from the brand hue and lands
@@ -24,11 +39,18 @@
    at --max-line-width is exact here: ch resolves against the element's own
    font, so 70ch of a monospace face is 70 code columns. */
 pre {
-  max-width: var(--max-line-width);
+  /* A filled, rounded slab. The border matches the fill exactly, so it reads
+     as one soft shape rather than an outlined box -- it just bleeds the fill
+     out by a pixel. max-width gains back the horizontal padding and border so
+     70 code columns still fit without scrolling. */
+  --code-bg: light-dark(oklch(97% 0 0), oklch(20% 0 0));
+
+  max-width: calc(var(--max-line-width) + 2 * var(--spacing-s) + 2px);
   overflow-x: auto;
   padding: var(--spacing-xs) var(--spacing-s);
-  border: 1px solid var(--rule-soft);
-  border-radius: var(--radius-s);
+  background: var(--code-bg);
+  border: 1px solid var(--code-bg);
+  border-radius: var(--radius-m);
   font-size: var(--fs-s);
   line-height: 1.5;
 }
@@ -146,6 +168,163 @@ pre code {
       text-decoration: underline;
     }
   }
+}
+
+/* A solid band under the masthead. Removing the menu took away the only thing
+   separating the logo/title from the body copy, so this stands in for it --
+   --color-button is the same near-black the old nav chips were filled with.
+   Thicker than the theme's 2px footer rule, and it shares the footer rule's
+   extent (both are grid items in .layout__page with the same inline padding,
+   so the two lines start and end on exactly the same pixels). */
+/* Masthead divider: a thick rule with a thin one under it.
+   This can't live on .layout__header -- that element spans the full 1111px
+   grid column, and its inline padding is only --gutters while .layout__main's
+   content column starts a further --breakout in, so a border there overhangs
+   the prose on both sides (further on the left). Rendering it as a grid item
+   in the *content* column and capping it at --max-line-width makes it start
+   and stop exactly where the paragraphs do. */
+.layout__main::before {
+  content: '';
+  grid-column: content;
+  max-width: var(--max-line-width);
+  height: 0;
+  border-block-start: 2px solid var(--color-button);
+  margin-block-end: var(--spacing-m);
+}
+
+/* The UA stylesheet gives <hr> margin-inline: auto. On a normal block that
+   resolves to 0, but .layout__main is a grid and auto margins on a grid item
+   absorb every bit of free space -- so a markdown `---` collapsed to zero
+   width and vanished. Pin the margins and cap it to the prose width. */
+.layout__main hr {
+  margin-inline: 0;
+  /* .layout__main is a grid, so margins between items do NOT collapse: the
+     preceding paragraph's 27px bottom margin and the theme's 27px top margin
+     on hr were adding up to a 54px gap. Zeroing the top halves it. */
+  margin-block-start: 0;
+  width: 100%;
+  max-width: var(--max-line-width);
+  border-block-start: 2px solid var(--color-button);
+}
+
+/* The 96px logo drives the header's height, so the title sits centred against
+   it with ~27px to spare below, and the header adds another 27px of padding --
+   leaving the masthead band 54px clear of the title. Trim the bottom padding
+   to bring the band up toward it. */
+.layout__header {
+  padding-block-end: var(--spacing-xs);
+}
+
+/* The theme's footer rule uses --color-border, which is a lighter step than
+   --color-button in dark mode -- the two bars would not match. Pin it to the
+   same token so the masthead band and the footer rule stay the same colour in
+   both schemes; only the thickness distinguishes them. */
+.footer {
+  border-block-start-color: var(--color-button);
+  /* Now that all three rules are the same weight, the footer's spanning the
+     full 1111px grid column while the other two stop at the prose width read
+     as a mistake rather than a choice. Bring it in to match. */
+  padding-inline: 0;
+  border-block-start: 0;
+}
+
+/* The rule moves to a pseudo-element so its font metrics can be pinned to the
+   body's. --max-line-width is 70ch, and ch resolves against the element's own
+   font -- the footer is set in --ff-headings at --fs-xs, so the same token
+   measured 545px here against 701px in the prose. Matching the prose font and
+   size makes 70ch mean the same number of pixels in both places. */
+.footer::before {
+  content: '';
+  display: block;
+  font-family: var(--ff-body);
+  font-size: var(--fs-m);
+  max-width: var(--max-line-width);
+  margin-inline-start: var(--gutters);
+  margin-block-end: var(--gutters);
+  border-block-start: 2px solid var(--color-button);
+}
+
+/* Section headings that are direct children of main (the home page's "Posts",
+   not headings inside an article). Margins don't collapse between grid items,
+   so the theme's 1.5em top margin stacked on the preceding paragraph's 27px
+   bottom margin and opened a 75px chasm. Aim for a deliberate ~47px break. */
+.layout__main > :is(h2, h3, h4) {
+  margin-block-start: var(--spacing-xxs);
+}
+
+/* A list shouldn't compete with the heading introducing it. The theme sets
+   entry titles and section headings both at --fs-xl, and entry titles also
+   carry a link underline -- so the entries read as outranking "Posts". Step
+   them down a size to restore the hierarchy. */
+.layout__main article h2.title {
+  font-size: var(--fs-l);
+}
+
+/* A heading immediately followed by an <hr> forms one unit -- the rule
+   underlines its section, the same way the masthead's rule sits under the
+   logo and title. Without this the theme's 0.5em heading margin stacks on the
+   hr's 27px top margin (no margin collapsing in this grid), leaving them
+   floating apart instead of reading as a pair. */
+.layout__main :is(h2, h3, h4):has(+ hr) {
+  margin-block-end: var(--spacing-xxs);
+}
+
+.layout__main :is(h2, h3, h4) + hr {
+  margin-block-start: 0;
+  /* The following entry title carries mt--s (20px) of its own, and margins
+     don't collapse in this grid, so the theme's 27px here made a 47px gap. */
+  margin-block-end: var(--spacing-xxs);
+}
+
+/* The theme emits `Tags:` as a text node followed by a <ul>, relying on source
+   whitespace for the gap -- which Hugo's HTML minifier strips, yielding
+   "Tags:Linux". Put the space back in CSS so it survives minification. */
+.tags > ul {
+  margin-inline-start: 0.35em;
+}
+
+/* Tag pills. A small rounded fill echoes the code block's rounded ground
+   rather than introducing a new shape, and the padding is lifted from the old
+   nav chips. The pill itself signals interactivity, so the link underline goes.
+   Radius is deliberately larger than any plausible height to stay a true
+   capsule as the font size changes. */
+.tags {
+  --tag-bg: light-dark(var(--color-grey-200), var(--color-grey-800));
+  --tag-bg-hover: light-dark(var(--color-grey-300), var(--color-grey-700));
+
+  ul {
+    --flex-inline-gap: 0.3rem;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.15em 0.6em;
+    border-radius: 999px;
+    background: var(--tag-bg);
+    color: var(--color-text-meta);
+    text-decoration: none;
+    line-height: 1.45;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--tag-bg-hover);
+      color: var(--color-text);
+    }
+  }
+}
+
+/* Footer identity links, quiet and on one line. */
+.footer .social {
+  font-size: var(--fs-s);
+  color: var(--color-text-meta);
+  margin-block-end: var(--spacing-xxs);
+}
+
+/* The About portrait is a 460px square and was rendering at full size, filling
+   the column and pushing every word of the page below the fold. */
+.single-view img[src$="pfp.png"] {
+  max-width: 11rem;
+  height: auto;
 }
 
 /* Trim the leading above the cap height so a box's top edge IS the top of its

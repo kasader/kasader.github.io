@@ -4,6 +4,7 @@ title: "Casaderic Compendivm"
 theme: "github.com/frjo/hugo-theme-zen/v7"
 locale: "en-US"
 defaultContentLanguage: "en"
+summaryLength: 25
 
 # Class-based highlighting (Hugo defaults to inline monokai styles, which
 # can't be themed). Colours live in assets/css/syntax.css.
@@ -45,20 +46,15 @@ params:
   logoWidth: 96
   mainSections:
     - posts
-  mobileMenu: true
   poweredby: false
   submitted: true
   author:
     name: "Sasha Casada"
 
-menus:
-  main:
-    - name: Home
-      pageRef: /
-      weight: 10
-    - name: Posts
-      pageRef: /posts
-      weight: 20
-    - name: About
-      pageRef: /about
-      weight: 30
+  # Rendered by layouts/_partials/social-links.html into the footer.
+  # rel="me" lets these double as IndieWeb/Mastodon identity verification.
+  social:
+    - name: "GitHub"
+      url: "https://github.com/kasader"
+    - name: "LinkedIn"
+      url: "https://linkedin.com/in/scasada"

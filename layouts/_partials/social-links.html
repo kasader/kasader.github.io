@@ -1,0 +1,12 @@
+{{- /* Footer identity links. Text rather than brand icons: LinkedIn's mark
+       isn't available under a free licence (it was removed from Simple Icons
+       at their request), so an icon row would mix a real mark with a stand-in
+       — and plain labels suit this site's typographic styling anyway. */ -}}
+{{- with site.Params.social }}
+<p class="social">
+  {{- range $i, $s := . }}
+  {{- if $i }} · {{ end -}}
+  <a href="{{ $s.url }}" rel="me noopener">{{ $s.name }}</a>
+  {{- end }}
+</p>
+{{- end }}

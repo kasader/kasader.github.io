@@ -5,7 +5,6 @@
    is a light-dark(light, dark) pair. */
 
 .chroma {
-  --ql-bg:       light-dark(#ffffff, #1f1f1f);
   --ql-fg:       light-dark(#333333, #d4d4d4);
   --ql-comment:  light-dark(#aaaaaa, #7a7a7a);
   --ql-doc:      light-dark(#448c27, #7cc262);
@@ -21,7 +20,7 @@
   --ql-hl:       light-dark(#c9d0d9, #33393f);
   --ql-deleted:  light-dark(#c73d20, #e07a5f);
 
-  background-color: var(--ql-bg);
+  /* The block fill lives with the rest of the pre styling in _custom.css. */
   color: var(--ql-fg);
 }
 
