@@ -1,9 +1,14 @@
 ---
-title: "kasader.dev"
+title: "Casaderic Compendivm"
 ---
 
-Server-side engineer based in Tokyo, working on distributed systems, multiplayer
-networking, & cloud infra (Go, C, Kubernetes, and Terraform).
+Lover of mirth and gaiety. Server-side engineer working on **distributed systems** & **cloud
+infrastructure** (*Nix, Go, & k8s*). Avid home-labber; compiler-head.
 
-Here is home to generic notes, with common themes being: Go internals, Nix, and
-the occasional random rabbit hole.
+Self-identified as one who uses their eyes to feel. Believer in all things drab
+and yellow. Man possessed of a sallow visage; remember: "*it's a secret to everybody!*"
+**All thoughts are mine own**.
+
+## Posts
+
+---
