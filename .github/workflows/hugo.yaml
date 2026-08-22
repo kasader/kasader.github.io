@@ -48,6 +48,9 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # Create the Pages site on first run
+          enablement: true
 
       - name: Build
         # base_url follows the Pages config, so a custom domain needs no edit here.
