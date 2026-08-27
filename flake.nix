@@ -30,6 +30,9 @@
             pkgs.markdownlint-cli2
             pkgs.typos
             pkgs.lychee
+
+            # scripting
+            pkgs.python3
           ];
 
           shellHook = ''

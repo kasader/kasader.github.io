@@ -1,0 +1,14 @@
+{
+  "qwerty": {
+    "name": "QWERTY",
+    "rows": ["qwertyuiop", "asdfghjkl;", "zxcvbnm,./"]
+  },
+  "colemak": {
+    "name": "Colemak",
+    "rows": ["qwfpgjluy;", "arstdhneio", "zxcvbkm,./"]
+  },
+  "colemak-dh": {
+    "name": "Colemak-DH (matrix)",
+    "rows": ["qwfpbjluy;", "arstgmneio", "zxcdvkh,./"]
+  }
+}
