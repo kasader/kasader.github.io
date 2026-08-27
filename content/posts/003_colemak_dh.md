@@ -6,11 +6,13 @@ slug: "colemak-dh"
 tags: ["keyboards", "ergonomics"]
 ---
 
-From my understanding, a lot of people are drawn to Colemak (and the many variations upon it) for its ergonomic benefits as a preventative measure for some wrist-trouble, or something like that. I do experience some minor shoulder pain (on the left side), but I do not find it to be a make-or-break issue for my productivity. And to be completely honest, I have no complaints with QWERTY and I can touch-type just fine; so this is a rather poor advertisement for adopting any new keyboard layouts. Yet, learning something new and looking like an odd-ball while doing it is always a joy. They often ask: "who even uses Colemak anyways?" and the answer is almost always "not anybody who actually *needs* to," and that includes me.
+From my understanding, a lot of people are drawn to Colemak (and the many variations upon it) for its ergonomic benefits as a preventative measure for some wrist-trouble, or something like that. I do experience some minor shoulder pain (on the left side), but I do not find it to be a make-or-break issue for my productivity. And to be completely honest, I have no complaints with QWERTY and I can touch-type just fine; so this is a rather poor advertisement for adopting any new keyboard layouts. They often ask: "who even uses Colemak anyways?" and the answer is almost always "not anybody who actually *needs* to," and that includes me.
+
+*Why did I switch?* Because I wanted to challenge myself and use a weird peripheral. *Is that a good reason?* For me, yes, it's valid enough (LOL).
 
 I switched to **Colemak-DH** in the spring. The first month took me to roughly 50 WPM, which was an unpleasant start, yet I kept pushing. Now, three or four months on I sit at ~90 to ~100. My QWERTY is 120. I am still measurably slower on this keyboard than I am on an ordinary one. But I have no intention of going back. I'll explain why shortly.
 
-This whole process was kicked off by a purchase: I bought a [Cornix LP](https://jezailfunder.jp/products/cornix-lp-keyboard) from JezailFunder (a pretty silver-cased 40% wireless split @ ¥29,500) and then took the opportunity to relearn how to type along with the new column-staggered hand placement. Loving the board also brought a love for the Colemak-DH (as I used exclusively with the board). The process of going from 104 keys to 42 also forced me to consider how to most effectively *design* a keymap tailored to my needs. I found myself very thankful to the whole massive ecosystem that has been built around supporting these novel approaches to keyboard firmware. We stand on the shouldeers of giants!
+This whole process was kicked off by a purchase: I bought a [Cornix LP](https://jezailfunder.jp/products/cornix-lp-keyboard) from JezailFunder (a pretty silver-cased 40% wireless split @ ¥29,500) and then took the opportunity to relearn how to type along with the new column-staggered hand placement. Loving the board also brought a love for the Colemak-DH (as I used exclusively with the board). The process of going from 104 keys to 42 also forced me to consider how to most effectively *design* a keymap tailored to my needs.
 
 ---
 
@@ -70,6 +72,8 @@ The flip side is that the layout does not travel: my laptop keyboard is QWERTY, 
 
 This could sound like a limitation, maybe, but I maintain that it is the opposite. MacOS ships with Colemak pre-installed but not Colemak-DH, so doing this in software would mean maintaining a custom layout on every machine I touch and then, like, hastily swapping out the keymap configuration to QWERTY and like stumbling around the settings with my cursor like a fool, if anybody tries to use my machine (I also maintain a toggleable layer on my Cornix which provides QWERTY input for anyone who needs it).
 
+{{< figure src="/images/colemak/keymap-qwerty.svg" width="873" height="335" alt="The Cornix QWERTY layer, a full QWERTY arrangement toggled on with a single key" caption="That QWERTY layer, toggled on with the `L5` key. Anyone can sit down and type." >}}
+
 Thus, really, keeping it within the hardware is less work by a massive margin.
 
 ### Two Layouts at Once
@@ -98,13 +102,17 @@ The best sleeper feature of the board is that **the tenting folds out of the boa
 
 ## Custom Mod Layers
 
-Forty-two keys is not enough keys (if you noticed, there is no number/symbol row, arrows keys, function keys, etc). There for everything has to go *somewhere you decided to put it*.
+Forty-eight keys is not enough keys (if you noticed, there is no number/symbol row, arrows keys, function keys, etc). There for everything has to go *somewhere you decided to put it*.
 
-For this Cornix runs **[Vial](https://get.vial.today/)**, which is a QMK fork with a GUI that writes to the keyboard while it is running, and there is a [web version](https://vial.rocks/) that needs nothing installed at all. You change a key and it updates immediately (if there was a compile-and-flash cycle in between I might've given up on the board, honestly, that how much you end up editing your keymap). If you put a key someplace and it absolutely sucks, you usally need a day or two to make that call.
+For this Cornix runs **[Vial](https://get.vial.today/)**, which is a QMK fork with a GUI that writes to the keyboard while it is running, and there is a [web version](https://vial.rocks/) that needs nothing installed at all. You change a key and it updates immediately (if there was a compile-and-flash cycle in between I might've given up on the board, honestly, that how much you end up editing your keymap). If you put a key someplace and it absolutely sucks, you usually need a day or two to make that call.
+
+{{< figure src="/images/colemak/keymap-nav.svg" width="873" height="335" alt="The Cornix navigation layer, with arrow keys on the right home row and macOS shortcuts on the left" caption="The navigation layer, held down with the left thumb. Arrows land on the right home row, and the shortcuts I use constantly sit under the left hand." >}}
 
 ### Home Row Mods
 
 I've also hopped on the absolute hypefest which are home row mods (I feel that nobody will shut up about it online after they start using it). They make the home row do two jobs: tap it for the letter, hold it for a modifier. So `A R S T` and `N E I O` are also GUI (◆), Alt (⎇), Ctrl (⎈) and Shift (⇧), mirrored outward from the index fingers. `Ctrl+C` becomes two middle fingers on opposite hands, both of which are already resting where they need to be. There are lots of opinions on which home-row keys should be mapped to where, but I use [GACS (◆⎇⎈⇧)](https://precondition.github.io/home-row-mods#gacs).
+
+{{< figure src="/images/colemak/keymap-base.svg" width="873" height="335" alt="The Cornix base layer, showing Colemak-DH with modifiers on the home row and layer keys under the thumbs" caption="My base layer, drawn from the keymap on the board itself. The small label under a key is what it does when you hold it rather than tap it." >}}
 
 QMK calls this a **mod-tap**, and Vial exposes it directly. The difficulty is all in the timing: how long a hold has to be before it counts as a hold, and what happens when you roll from a modifier into a letter faster than the firmware expected. This is a solved problem and you should not try to solve it yourself. Precondition's [guide to home row mods](https://precondition.github.io/home-row-mods) is the defacto reference; reading it first will save you a lot of wasted time, so please, read the whole thing if you decide to use them. You'll end up very upset and unable to type anything if you don't configure it right.
 
@@ -112,7 +120,7 @@ QMK calls this a **mod-tap**, and Vial exposes it directly. The difficulty is al
 
 Vial calls chords **combos**: press N keys at the same time, get out whatever mapping you set. An example of one I've set is `H` and `,` for backspace.
 
-The choice of pair is not arbitrary, and I only worked out why after picking a few bad ones. On Colemak-DH, `H` and `,` sit next to each other on the bottom row under the right index and right middle fingers, so they are on the same row and in adjacent columns but on *different fingers*. You can press that as a single motion, the way you would tap two adjacent piano keys. A pair on the same finger is impossible, and a pair spread across rows or hands is really just two keys pressed carefully, which is slower than whatever you were trying to avoid in the first place.
+The choice of pair is not arbitrary, and I only worked out why after picking a few bad ones. On Colemak-DH, `H` and `,` sit next to each other on the bottom row under the right index and right middle fingers, so they are on the same row and in adjacent columns but on *different fingers*. You can press that as a single motion, the way you would tap two adjacent piano keys. A pair on the same finger means rolling one finger across both keys, which is doable but slower, and a pair spread across rows or hands is really just two keys pressed carefully, which is slower than whatever you were trying to avoid in the first place.
 
 ---
 
@@ -140,4 +148,4 @@ A trackball is a sphere instead of a moulded right-handed shape, so its perfect 
 
 Erm, well, I am still ~20 WPM slower on the Cornix than I am on a QWERTY keyboard, but I have stopped caring about that. Speed was just the thing I could measure, so it became the thing I measured; but that isn't too important to as much as it was anymore. What actually changed is that my hands no longer really go anywhere. Two thirds of my keypresses land where my fingers already are. It's very comfy, and the rolls are addictive. It makes typing fun.
 
-At the end of the day, though, I know that I could have kept QWERTY on this board and still gained most of what I did. Most of the work was done by the 42-key constraint and by the QMK firmware that made me so engaged in the project of switching over; the rest was a couple of months of patience and gaining the muscle memory. In short: I love Colemak-DH. I love my Cornix. And I love you, reader. Thanks.
+At the end of the day, though, I know that I could have kept QWERTY on this board and still gained most of what I did. Most of the work was done by the 48-key constraint and by the QMK firmware that made me so engaged in the project of switching over; the rest was a couple of months of patience and gaining the muscle memory. In short: I love Colemak-DH. I love my Cornix. And I love you, reader. Thanks.

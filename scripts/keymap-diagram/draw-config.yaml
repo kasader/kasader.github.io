@@ -1,0 +1,15 @@
+draw_config:
+  outer_pad_h: 22
+  append_colon_to_layer_header: false
+  svg_extra_style: |
+    svg.keymap { fill: #2b2520; background: none; }
+    rect.key { fill: #faf7f0; }
+    rect.key, rect.combo { stroke: #d8d2c4; }
+    rect.held, rect.combo.held { fill: #e8d9b8; }
+    @media (prefers-color-scheme: dark) {
+      svg.keymap { fill: #e8e1d3; }
+      rect.key { fill: #232220; }
+      rect.key, rect.combo { stroke: #3d3a33; }
+      rect.held, rect.combo.held { fill: #5c4a1e; }
+      text.label { fill: #8f8878; }
+    }
