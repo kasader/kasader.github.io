@@ -176,12 +176,12 @@
             }
 
             rect.key {
-                fill: #232220;
+                fill: #26241f;
             }
 
             rect.key,
             rect.combo {
-                stroke: #3d3a33;
+                stroke: #514c40;
             }
 
             rect.held,
@@ -191,6 +191,7 @@
 
             text.label {
                 fill: #8f8878;
+                stroke: #141414;
             }
         }
     </style>

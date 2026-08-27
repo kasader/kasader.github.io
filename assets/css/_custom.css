@@ -26,11 +26,49 @@
 
   --ff-headings: var(--old);
 
-  /* The theme's --color-border* scale is derived from the brand hue and lands
-     around oklch(0.41) even at its lightest — too heavy for a hairline. These
-     read as a rule rather than a frame. */
+  /* The theme's --color-border* scale is derived from the brand hue and is
+     too heavy for a hairline in either scheme. These read as a rule rather
+     than a frame. Used for table rules and the block quote bar; the page
+     rules take --color-button, and so does the table of contents. */
   --rule-soft: light-dark(var(--color-grey-300), var(--color-grey-800));
   --rule-firm: light-dark(var(--color-grey-400), var(--color-grey-700));
+}
+
+/* ── Night scheme ─────────────────────────────────────────────────────*/
+:root {
+  --night-ground: oklch(19% 0 0);
+  --night-text: oklch(92% 0 0);
+  --night-heading: oklch(88% 0 0);
+  /* Hover recedes toward the ground, the same gesture as by day. */
+  --night-link-hover: oklch(62% 0 0);
+  /* The three page rules, figure frames, form accents. */
+  --night-rule: oklch(77% 0 0);
+  /* Bylines, captions, tag text, block quotes. Held above the lightness the
+     day scheme's grey-600 maps to: relative luminance is not perceptually
+     even, and the literal mirror came out at 4.5:1 against this ground where
+     grey-600 gets 7.2:1 against white. */
+  --night-meta: oklch(65% 0 0);
+  /* Applied to the logo down by .layout__header; see the note there. */
+  --logo-night: invert(1) brightness(0.87);
+
+  --color-body-bg: light-dark(var(--color-white), var(--night-ground));
+  --color-text-bg: light-dark(var(--color-white), var(--night-ground));
+  --color-text: light-dark(var(--color-black), var(--night-text));
+  --color-headings: light-dark(var(--color-grey-900), var(--night-heading));
+  --color-code: light-dark(var(--color-grey-900), var(--night-heading));
+  --color-text-meta: light-dark(var(--color-grey-600), var(--night-meta));
+
+  /* Links carry no colour of their own in either scheme -- the underline does
+     the identifying -- so they sit with the body copy and move on hover. */
+  --color-link: light-dark(var(--color-brand-500), var(--night-text));
+  --color-link-visited: light-dark(var(--color-brand-500), var(--night-text));
+  --color-link-hover: light-dark(var(--color-brand-200), var(--night-link-hover));
+
+  --color-button: light-dark(var(--color-brand-400), var(--night-rule));
+  --color-border: light-dark(var(--color-brand-400), var(--night-rule));
+  --color-border-dark: light-dark(var(--color-brand-600), var(--night-rule));
+  --color-accent: light-dark(var(--color-brand-400), var(--night-rule));
+  --color-highlight: light-dark(var(--color-brand-400), var(--night-rule));
 }
 
 /* ── Code blocks ──────────────────────────────────────────────────────
@@ -43,7 +81,11 @@ pre {
      as one soft shape rather than an outlined box -- it just bleeds the fill
      out by a pixel. max-width gains back the horizontal padding and border so
      70 code columns still fit without scrolling. */
-  --code-bg: light-dark(oklch(97% 0 0), oklch(20% 0 0));
+  /* The night fill sits further from its ground than the day fill does from
+     white. Two points of lightness is a legible tint up there and nothing at
+     all down here, where the whole scheme is compressed into the bottom of
+     the ramp. Matched to the tag pills, the site's other quiet fill. */
+  --code-bg: light-dark(oklch(97% 0 0), oklch(24% 0 0));
 
   max-width: calc(var(--max-line-width) + 2 * var(--spacing-s) + 2px);
   overflow-x: auto;
@@ -136,7 +178,11 @@ pre code {
   text-wrap: balance;
   padding-block-end: var(--spacing-xxs);
   margin-block-end: var(--spacing-xs);
-  border-block-end: 1px solid var(--rule-soft);
+  /* Same colour as the masthead band, the article's `---` rules and the
+     footer rule, so the four read as one family; the rail stays subordinate
+     on weight alone (1px against their 2px). --rule-soft, the table hairline,
+     was a third value that only looked like a mistake next to the others. */
+  border-block-end: 1px solid var(--color-button);
 }
 
 .toc {
@@ -215,15 +261,31 @@ pre code {
   padding-block-end: var(--spacing-xs);
 }
 
-/* The theme's footer rule uses --color-border, which is a lighter step than
-   --color-button in dark mode -- the two bars would not match. Pin it to the
-   same token so the masthead band and the footer rule stay the same colour in
-   both schemes; only the thickness distinguishes them. */
+/* The mark is pure black artwork whose shape lives entirely in the PNG's
+   alpha channel, so at night it vanished into the page. Inverting the file
+   gives the same glyph in white; the brightness step pulls it back off pure
+   white to sit with the headings rather than glare above them.
+
+   Everything else on the site switches through light-dark(), which follows
+   color-scheme and so honours [data-theme] for free. filter takes a number
+   rather than a colour, so this has to read the scheme itself: the media
+   query for the system preference, the attribute selector for an explicit
+   choice, and the :not() so an explicit light choice beats a dark system. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .header__logo-image {
+    filter: var(--logo-night);
+  }
+}
+
+:root[data-theme='dark'] .header__logo-image {
+  filter: var(--logo-night);
+}
+
+/* The theme draws the footer rule as a border on .footer itself, which spans
+   the full 1111px grid column while the masthead band and the article's `---`
+   rules stop at the prose width -- read as a mistake rather than a choice.
+   Dropped here and redrawn on ::before below, inset to match. */
 .footer {
-  border-block-start-color: var(--color-button);
-  /* Now that all three rules are the same weight, the footer's spanning the
-     full 1111px grid column while the other two stop at the prose width read
-     as a mistake rather than a choice. Bring it in to match. */
   padding-inline: 0;
   border-block-start: 0;
 }
@@ -289,8 +351,8 @@ pre code {
    Radius is deliberately larger than any plausible height to stay a true
    capsule as the font size changes. */
 .tags {
-  --tag-bg: light-dark(var(--color-grey-200), var(--color-grey-800));
-  --tag-bg-hover: light-dark(var(--color-grey-300), var(--color-grey-700));
+  --tag-bg: light-dark(var(--color-grey-200), oklch(24% 0 0));
+  --tag-bg-hover: light-dark(var(--color-grey-300), oklch(30% 0 0));
 
   ul {
     --flex-inline-gap: 0.3rem;
