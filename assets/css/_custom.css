@@ -339,6 +339,11 @@ pre code {
   text-box-edge: cap alphabetic;
 }
 
+/* ── Figures ─────────────────────────────────────────────── */ 
+figure.framed img {
+  border: 2px solid var(--color-button);
+}
+
 /* ── Block quotes ────────────────────────────────────────── */
 blockquote {
   margin-inline: 0;

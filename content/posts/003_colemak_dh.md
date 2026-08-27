@@ -57,9 +57,23 @@ The first month is quite rough, and no amount of forewarning prepares you for th
 
 Then, ~50 WPM at a month is roughly the point where the layout stops being the bottleneck and your thinking becomes the bottleneck again (which is the only threshold that actually matters). Everything after that has been a slow accumulation. Despite not running through daily typing drills the number keeps drifting up on its own.
 
-I have been asked if I ended up losing QWERTY in this transition, and the answer is that I did not. Losing QWERTY is too high of a cost to bother with this at all if that were actually the trade being made, nobody wants to permanently handicap themselves for what could end up being almost no benefit, but I digress. I did not shed even a bit of my current WPM of it and this is thanks to an active logical separation I maintain between the physical keyboard styles and the key layouts that I use with them. I've written my Cornix keymap into the board's flash memory (see: [Vial.rocks](https://vial.rocks/)), so there is no required config and/or per-machine setup. The flip side is that the layout does not travel: my laptop keyboard is QWERTY, and every other generic borrowed keyboard is QWERTY.
+---
 
-This could sound like a limitation, maybe, but I maintain that it is the opposite. MacOS ships with Colemak pre-installed but not Colemak-DH, so doing this in software would mean maintaining a custom layout on every machine I touch and then, like, hastily swapping out the keymap configuration to QWERTY and like stumbling around the settings with my cursor like a fool, if anybody tries to use my machine (I also maintain a toggleable layer on my Cornix which provides QWERTY input for anyone who needs it). Thus, really, keeping it within the hardware is less work by a massive margin.
+## Keeping QWERTY
+
+I have been asked if I ended up losing QWERTY in this transition, and the answer is that I did not. Losing QWERTY is too high of a cost to bother with this at all if that were actually the trade being made, nobody wants to permanently handicap themselves for what could end up being almost no benefit, but I digress.
+
+Thankfully, I did not lose any of my WPM in QWERTY compared to when I started; and I suppose that this is due to an active/intentional logical separation that I maintain between the physical keyboard styles and the key layouts that I use with them. I've written my Cornix keymap into the board's flash memory (see: [Vial.rocks](https://vial.rocks/)), so there is no required config and/or per-machine setup.
+
+### Doing It in Software
+
+The flip side is that the layout does not travel: my laptop keyboard is QWERTY, and every other generic borrowed keyboard is QWERTY.
+
+This could sound like a limitation, maybe, but I maintain that it is the opposite. MacOS ships with Colemak pre-installed but not Colemak-DH, so doing this in software would mean maintaining a custom layout on every machine I touch and then, like, hastily swapping out the keymap configuration to QWERTY and like stumbling around the settings with my cursor like a fool, if anybody tries to use my machine (I also maintain a toggleable layer on my Cornix which provides QWERTY input for anyone who needs it).
+
+Thus, really, keeping it within the hardware is less work by a massive margin.
+
+### Two Layouts at Once
 
 {{< quote cite="–stevep99, some guy on the Colemak forums" url="https://forum.colemak.com/topic/2817-help-on-how-to-keep-both-colemakdh-and-qwerty/" >}}
 "People have reported success in […] maintaining both layouts. I've heard of people using psychological hacks to assist with the context switching, for example, using Qwerty on a traditional row-staggered board, and Colemak(-DH) exclusively on an ortholinear. Or, using one layout at home and one at work."
@@ -71,33 +85,33 @@ If anyone is worried about the confusion that might come along with knowing mult
 
 ## The Keyboard
 
-The Cornix LP is a 40% split with an aluminium case, an FR4 plate, Kailh Choc V2 switches, a rotary encoder on each side, and a 650 mAh cell per side. It runs over Bluetooth for up to **(3)** devices.
+The Cornix LP is a 40% split with a 6063 aluminium case (sandblasted and anodized), an FR4 plate, Kailh Choc V2 switches, a rotary encoder on each half, and a 650 mAh cell per side. It runs over Bluetooth for up to three devices, with USB-C for when I would rather not think about batteries.
 
-It ships on LAK PBT caps which are perfectly fine, but I replaced them with a set of very pretty [LCK Liquid Silver](https://jezailfunder.jp/products/lck-liquid-silver) at ¥4,900. They are low-profile with a dished centre and a metallic finish; against the silver case the whole board looks like a serious bit of equipment. *(Both the caps and the board keep drifting in and out of stock, so please temper your expectations before you click to buy. I had to go through two rounds of lottery to purchase it, and it took over a month from order to manufacturing + shipping).*
+It ships on LAK PBT caps which are perfectly good, and I replaced them anyway with a set of [LCK Liquid Silver](https://jezailfunder.jp/products/lck-liquid-silver) at ¥4,900. They are low-profile with a dished centre and a properly metallic finish; against the silver case the whole board looks like a serious bit of equipment. *(Both the caps and the board keep drifting in and out of stock, so temper your expectations before you click.)*
 
-{{< figure src="/images/colemak/cornix-keycaps.webp" width="1400" height="520" alt="Top-down view of both halves of a silver split keyboard with dished metallic silver keycaps" caption="The Liquid Silver caps on the silver case. The knob on each half is a rotary encoder, and the clear window beside it shows the wireless module." >}}
+{{< figure src="/images/colemak/cornix-keycaps.webp" class="framed" width="1400" height="520" alt="Top-down view of both halves of a silver split keyboard with dished metallic silver keycaps" caption="The Liquid Silver caps on the silver case. The knob on each half is a rotary encoder, and the clear window beside it shows the wireless module." >}}
 
-The feature I did not know I wanted is that **the tenting folds out of the board itself**. There are two machined struts under each half with four notched positions (6°, 12°, 18°, and 24°), so there is nothing extra to buy. On most splits tenting is an aftermarket problem you solve with pucks or printed wedges, and because that costs money and effort you tend to pick an angle early and then stick with it. Being able to change mine in ten seconds meant I could spend my time with the board actually experimenting out the gate. I find that I rather like the 6°/12°.
+The feature I did not know I wanted is that **the tenting folds out of the board itself**. There are two machined struts under each half with four notched positions (6°, 12°, 18°, and 24°), so there is nothing extra to buy. On most splits tenting is an aftermarket problem you solve with pucks or printed wedges, and because that costs money and effort you tend to pick an angle early and then stick with it. Being able to change mine in ten seconds meant I spent the first fortnight actually experimenting.
 
-{{< figure src="/images/colemak/cornix-tenting.webp" width="1400" height="534" alt="Side-on view of the keyboard, the left half raised steeply on its fold-out strut and the right half sitting flat" caption="The struts fold out from underneath. The left half is near the top of its range here and the right one is sitting flat." >}}
+{{< figure src="/images/colemak/cornix-tenting.webp" class="framed" width="1400" height="534" alt="Side-on view of the keyboard, the left half raised steeply on its fold-out strut and the right half sitting flat" caption="The struts fold out from underneath. The left half is near the top of its range here and the right one is sitting flat." >}}
 
 ---
 
 ## The Layer Underneath
 
-Forty-two keys is not enough keys to provide all of the numbers and symbols that you need on a typical keyboard. I am sure that most people are familiar with layers, but this was my first foray into their actual adoption for daily use (I had a friend who would let me use their Plank keyboard back in college). There is no number row to fall back on, so every digit, bracket, arrow and function key has to go.
+Forty-two keys is not enough keys, which is not a complaint so much as it is the entire mechanism at work. There is no number row to fall back on, so every digit, bracket, arrow and function key has to go *somewhere you decided to put it*.
 
-All of that would be tedious if the firmware were tedious, but it is not. The Cornix runs **[Vial](https://get.vial.today/)**, which is a QMK fork with a GUI that talks to the keyboard while it is running, and there is a [web version](https://vial.rocks/) that needs nothing installed at all. You change a key and it changes immediately, with no compile-and-flash cycle in between. It really makes a huge difference, because putting a bracket weird/you don't like is a mistake you only really discover by living with it for a day. So, iteration speed is key.
+All of that would be tedious if the firmware were tedious, but it is not. The Cornix runs **[Vial](https://get.vial.today/)**, which is a QMK fork with a GUI that talks to the keyboard while it is running, and there is a [web version](https://vial.rocks/) that needs nothing installed at all. You change a key and it changes immediately, with no compile-and-flash cycle in between. That matters more than it sounds like it should, because putting a bracket somewhere your hand refuses to go is a mistake you only really discover by living with it for a day.
 
 ### Home Row Mods
 
-I've also started using the very trendy home row mods as well. This makes it such that every key on the home row does two jobs: tap it for the letter, hold it for a modifier. So `A R S T` and `N E I O` are also GUI, Alt, Shift and Ctrl, mirrored outward from the index fingers (this layout is referred to commonly as: GACS/◆⎇⎈⇧). `Ctrl+C` becomes an index finger and a middle finger on opposite hands, both of which are already resting where they need to be.
+Every key on the home row does two jobs: tap it for the letter, hold it for a modifier. So `A R S T` and `N E I O` are also GUI, Alt, Shift and Ctrl, mirrored outward from the index fingers. `Ctrl+C` becomes an index finger and a middle finger on opposite hands, both of which are already resting where they need to be. Nothing has to reach for a corner, and my left pinky is no longer pinned to the bottom-left of the board a hundred times an hour.
 
-QMK calls this a **mod-tap**, and Vial exposes it directly. The difficulty is all in the timing: how long a hold has to be before it counts as a hold, and what happens when you roll from a modifier into a letter faster than the firmware expected. This is a solved problem and you should not try to solve it yourself. Precondition's [guide to home row mods](https://precondition.github.io/home-row-mods) is go-to for any of this stuff; it is long but it is worth it, and reading it first will save you a lot of easily prevented suffering.
+QMK calls this a **mod-tap**, and Vial exposes it directly. The difficulty is all in the timing: how long a hold has to be before it counts as a hold, and what happens when you roll from a modifier into a letter faster than the firmware expected. This is a solved problem and you should not try to solve it yourself. Precondition's [guide to home row mods](https://precondition.github.io/home-row-mods) is the reference; it is long but it is worth it, and reading it first will save you a fortnight of wondering why your keyboard keeps typing in capitals.
 
 ### Combos
 
-Vial calls chords **combos**: press N keys at the same time, get out whatever mapping you set. An example of one of ine is `H` and `,` for backspace.
+Vial calls chords **combos**: press N keys at the same time, get out whatever mapping you set. An example of one I've set is `H` and `,` for backspace.
 
 The choice of pair is not arbitrary, and I only worked out why after picking a few bad ones. On Colemak-DH, `H` and `,` sit next to each other on the bottom row under the right index and right middle fingers, so they are on the same row and in adjacent columns but on *different fingers*. You can press that as a single motion, the way you would tap two adjacent piano keys. A pair on the same finger is impossible, and a pair spread across rows or hands is really just two keys pressed carefully, which is slower than whatever you were trying to avoid in the first place.
 
@@ -109,7 +123,7 @@ The other thing a split gets you is a hole in the middle of your keyboard, and I
 
 Nobody really advertises this as a benefit of going split. On a normal keyboard the mouse lives out past the number pad, so using it means picking up your whole right hand, moving it eight inches over, and then finding the home row again by feel afterwards. With the halves pushed apart the pointer sits *inside* the keyboard, roughly where `G` and `H` used to be. My hands barely move.
 
-{{< figure src="/images/colemak/cornix-trackball.webp" width="1400" height="588" alt="Top-down view of the two keyboard halves spread apart with a Kensington SlimBlade trackball centred between them" caption="The SlimBlade sitting where a number pad would be on any other keyboard. This photo is from before the keycap swap, so those are the stock caps; their orange digits and green modifiers are a fair map of everything a 40% has to find room for on a layer." >}}
+{{< figure src="/images/colemak/cornix-trackball.webp" class="framed" width="1400" height="588" alt="Top-down view of the two keyboard halves spread apart with a Kensington SlimBlade trackball centred between them" caption="The SlimBlade sitting where a number pad would be on any other keyboard. This photo is from before the keycap swap, so those are the stock caps; their orange digits and green modifiers are a fair map of everything a 40% has to find room for on a layer." >}}
 
 A trackball is a sphere instead of a moulded right-handed shape, so it does not care which hand is on it. I use it with either one, more or less at random, which spreads a load that used to be entirely my right wrist's problem. None of that was planned, for the record. I bought it because it was silver, looked cool and it matched the aluminum-finish on board (LOL). I later found lots of additional benefits from having used it but I will save that for another day, maybe. This [YouTube video](https://www.youtube.com/watch?v=ypS251cpaGg) pretty cleanly summarizes my thoughts though (Japanese language warning).
 
@@ -125,8 +139,6 @@ A trackball is a sphere instead of a moulded right-handed shape, so it does not 
 
 ### Takeaway
 
-I am still about twenty words a minute slower on the Cornix than I am on my laptop, and I have stopped caring about that, which surprised me. Speed was just the thing I could measure, so it became the thing I measured. What actually changed is that my hands no longer really go anywhere. I feel a lot more productive by virtue of this alone.
+I am still about twenty words a minute slower on the Cornix than I am on my laptop, and I have stopped caring about that, which surprised me. Speed was just the thing I could measure, so it became the thing I measured. What actually changed is that my hands no longer really go anywhere. Two thirds of my keypresses land where my fingers already are, backspace is a twitch away, `Ctrl` sits under my index finger, and the mouse is between my wrists.
 
-Anyways, I callout the layout in the title because it has argumentative internet following behind it and its a bit off an odd thing to go with. At the end of the day, I think that I could have kept QWERTY on this board and still gained most of what I gained in terms of ergonomic tuning (namely the 42-key constraint); the rest was a couple of months of patience. I love Colemak-DH and I am not giving it up, but it in hindsight it was probably the smallest part of this whole change. 
-
-I never say no to an opportunity to change up everything at once. At least, I think what I pick up next time will be something like an instrument rather than a keyboard layout, as, I can't really take this anywhere else than I have arrived to. I hope reading this was useful in some way, and maybe you'll become a peripherial werido too!
+The layout gets top billing because it is the part with a name and an argumentative internet following behind it. But I could have kept QWERTY on this board and still gained most of what I gained. Most of the work was done by the 42-key constraint and by firmware that made changing my mind free; the rest was a couple of months of patience. I love Colemak-DH and I am not giving it up, but it was probably the smallest part of this whole change.
