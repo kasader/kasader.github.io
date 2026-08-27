@@ -17,45 +17,37 @@ This whole process was kicked off by a purchase: I bought a [Cornix LP](https://
 
 ## Why Colemak-DH
 
-Below I've got **(3)** different heatmaps which show off the difference between **QWERTY**, **Colemak**, and **Colemak-DH** in order to best illustrate the keypress distributions for each:
+Below are **(3)** different heatmaps for the unique keypress distributions of **QWERTY**, **Colemak**, and **Colemak-DH**:
 
-{{< figure src="/images/colemak/heatmap.svg" width="610" height="678" alt="Keypress heatmaps for QWERTY, Colemak and Colemak-DH over the same body of text" caption="**NOTE**: *Stretch* is the share landing in the two inner columns, the ones an index finger reaches by splaying sideways. *Same-Finger* are titular bigrams (explained below)." >}}
+{{< figure src="/images/colemak/heatmap.svg" width="610" height="678" alt="Keypress heatmaps for QWERTY, Colemak and Colemak-DH for the corpus compiled over my site/blog post text" caption="**NOTE**: *Stretch* counts the keypresses in the two inner columns, which your index finger has to splay sideways to reach. *Same-Finger* are titular bigrams (explained below)." >}}
 
-The mod has two different forms depending on whether your rows are staggered like a typical keyboard (typewriter-style) or stacked in columns; a column-staggered board like the Cornix takes the **matrix** version, which is pictured above.
+The mod has two different forms depending on whether your rows are staggered (typical keyboard) or stacked in even columns. A column-staggered kboard like the Cornix uses the **matrix** version, which is pictured above (quick aside: I know it is confusing that Colemak-DH is a mod of Colemak *and* there is a matrix/non-matrix variation of the mod, but bear with me).
 
-QWERTY places about one-third of English keypresses on the home row; Colemak/Colemak-DH puts about two-thirds of them there. Very uncomfortable same-finger bigrams (one finger asked to hit two different keys in a row) fall from ~4.6% to ~1.3%.
-
-A clear example of same-finger bigrams you might not notice is the typing of regular past-tense verbs in QWERTY by making your left-middle finger hop from `E` on the top row down to `D` on the home row (`-ED`). On either Colemak variation those two letters are on opposite hands.
+Looking at the image, QWERTY leaves about ~1/3 of English keypresses on the home row. Colemak and Colemak-DH are at ~2/3. Same-finger bigrams (when one finger asked to hit two different keys in a row) fall from ~4.6% to ~1.3%. QWERTY has a lot of same-finger bigrams in common typing, for example, any time you type `-ED` your left-middle finger has to hop from `E` on the top-row down to `D` on the home-row. Colemak (and its derrivatives) are designed specifically to do away with this as much as possible, and thus those two letters are on opposite hands.
 
 ### DH-Mod Changes
 
-On both measures of **home-row** and **same-finger bigrams**, Colemak-DH is actually fractionally *worse* compared to stock Colemak; the value proposition is made in reducing the number of "stretch" keypresses instead.
+On both measures of **home-row** and **same-finger bigrams**, Colemak-DH is actually slightly *worse* compared to stock Colemak. However, what you trade for is much fewer "stretch" key presses.
 
-`D` and `H` are frequent letters, and stock Colemak places them in the two inner columns, where your index fingers reach them by splaying sideways. Mod-DH swaps them for the far rarer `G` and `M` keys, and allows you to curl your fingers down instead. This is the common layout adopted over stock Colemak for ortholinear/column-staggered keyboards because the key-column alignment actually reduces the total finger travel-distance for home-row VS stretch keys.
+`D` and `H` are frequent letters, and (*strangely*) stock Colemak has them in the two inner-columns where your index fingers need to splay inward to get them. Mod-DH swaps them with `G` and `M` (*both much rarer*), so you can just curl your fingers down slightly instead. In general, this is the layout most people adopt over stock Colemak on specifically ortholinear/column-staggered boards, because the key-column alignment already cuts the total finger travel-distance from home-to-bottom row VS index stretch keys.
 
-With the mod, the typing that needs a sideways reach drops from ~13% to ~9%. That is the whole modification. Again, the primary incentive for this only stands as valid for boards which can take advantage of this.
+The typing that needs a sideways reach drops from ~13% to ~9%. But, that's pretty much it. Again, it is only worth anything on a board that can actually take advantage of the alignment travel-distance.
 
-One thing did get worse. My right pinky went from ~2.7% of keypresses to ~7.9%, because `O` and `;` both live in its column now. That is nearly triple. It bothers me less than the number suggests though, because I have since mapped a second `;` onto a separate layer (which I will get to later).
+The only thing that bothered me with Colemak though is that my right pinky went from ~2.7% to ~7.9% (nearly triple) of keypresses, because `O` and `;` both live in its column now. But I cut down on the top-row movement by placing `;` onto a separate symbol layer (which I will mention in more detail later).
 
 ### Key Rolling
 
 It is a phenomenon you cannot explain without first experiencing it firsthand ([try listening for the distinct "rolling" sounds in this person's typing](https://www.youtube.com/watch?v=D0kDL7rrkRI)). Rolling while typing is one of the most satisfying aspects of the Colemak layout. It is just the stacking of bigrams and trigrams (which Colemak is heavily optimized for) in typing.
 
-For example: `ST` is left-middle & left-index, two adjacent fingers on two adjacent keys, so when you type it, it becomes one distinct "rolling" motion rather than two. `NE` is the same on the right hand. `ARST` and `NEIO` are the whole home row under four fingers in order. Typing starts feeling like the keys are [falling over like a sequence of dominos](https://youtu.be/7ff3UQUPdio?si=2m54kvv-5I7vfJG8&t=107). It is really an indescribable kind of pleasure (*raaahhhhh*).
+For example: `ST` is left-middle & left-index, two adjacent fingers on two adjacent keys, so when you type it, the two presses come out as one distinct "rolling" motion. `NE` is the same on the right hand. `ARST` and `NEIO` are the whole home row under four fingers in order. Typing starts feeling like the keys are [falling over like a sequence of dominos](https://youtu.be/7ff3UQUPdio?si=2m54kvv-5I7vfJG8&t=107). It is really an indescribable kind of pleasure (*raaahhhhh*).
 
 ---
 
 ## Learning Colemak-DH
 
-|                                        | WPM      | Share of QWERTY |
-| -------------------------------------- | -------- | --------------- |
-| QWERTY, then and now                   | 120      | N/A             |
-| Colemak-DH, after one month            | ~50      | 42%             |
-| Colemak-DH, after three to four months | 90 – 100 | 75 – 83%        |
+The first month is quite rough, and being warned about it in advance does not help even a little. You lose the ability to think and type at the same time, because the part of your brain that used to handle spelling has been dragged into finding the letters in the big mental space where the keymap now lives. Hell.
 
-The first month is quite rough, and no amount of forewarning prepares you for the indignity of it. You lose the ability to think and type at the same time, because the part of your brain that used to handle spelling has been dragged into finding the letters in a big mental space which holds the keymap in your mind. Hell.
-
-Then, ~50 WPM at a month is roughly the point where the layout stops being the bottleneck and your thinking becomes the bottleneck again (which is the only threshold that actually matters). Everything after that has been a slow accumulation. Despite not running through daily typing drills the number keeps drifting up on its own.
+Then, ~50 WPM at a month is roughly the point where the layout stopped slowing me down and I was back to being the slow part myself, which was the only threshold I actually cared about. Everything since has come without much effort on my part: despite not running through daily typing drills the number keeps drifting up on its own.
 
 ---
 
@@ -67,11 +59,11 @@ Thankfully, I did not lose any of my WPM in QWERTY compared to when I started; a
 
 ### Keymap Configuration
 
-I do not switch to Colemak-DH as a keypress mapping that I enable in my OS. I have hard configured my Cornix keymap to the Colemak-DH layout, and therefore it's not portable (other than physically). I don't think this is a problem, though.
+I do not switch to Colemak-DH as a keypress mapping that I enable in my OS. I have hard configured my Cornix keymap to the Colemak-DH layout, and therefore it's not really "portable" (other than physically, heh). It's not really a problem though because I *want* to use my layout with the hardware.
 
-For example, MacOS ships with Colemak pre-installed but not Colemak-DH, so doing this in software would mean maintaining a custom layout on every machine I touch and then, like, hastily swapping out the keymap configuration to QWERTY and/or like stumbling around the in settings with my cursor like a big klutz if anybody happened to ask to use my machine (I also maintain a toggleable layer on my Cornix which provides QWERTY input for anyone who needs it).
+Besides, there are problems with doing this in your OS since it's not super standard. For example, MacOS ships with Colemak pre-installed but not Colemak-DH, so doing this in software would mean maintaining a custom layout on every machine I touch and then, like, hastily swapping out the keymap configuration to QWERTY and/or like stumbling around in the settings with my cursor like a big klutz if anybody happened to ask to use my machine (I also maintain a toggleable layer on my Cornix which provides QWERTY input for anyone who needs it).
 
-{{< figure src="/images/colemak/keymap-qwerty.svg" width="873" height="335" alt="The Cornix QWERTY layer, a full QWERTY arrangement toggled on with a single key" caption="QWERTY layer, toggled with the `L5` key. Almost exclusively for people who want to try typing on my board (they don't know Colemak-DH)." >}}
+{{< figure src="/images/colemak/keymap-qwerty.svg" width="873" height="335" alt="QWERTY layer keymap that is toggled on the alt key" caption="QWERTY layer. This provided exclusively for people who are scared of Colemak-DH and want to touch on me Cornix." >}}
 
 Thus, really, keeping it within the hardware is less work by a massive margin.
 
@@ -87,64 +79,63 @@ If anyone is worried about the confusion that might come along with knowing mult
 
 ## Using a Split Keyboard
 
-The Cornix LP is a 40% split with an aluminium case, an FR4 plate, Kailh Choc V2 switches, a rotary encoder on each half, and a 650 mAh cell per side. It runs over also Bluetooth for up to three devices. It's really quite the awesome piece of custom keyboard tech for the price.
+Again, I picked up a [Cornix LP](https://jezailfunder.jp/products/cornix-lp-keyboard), a 40% split in an aluminium case with Kailh Choc V2 switches. It also comes with dual rotary encoders on each half (*for some reason*). Additionally it runs over Bluetooth for up to **(3)** devices and has built-in batteries. It's really a shockingly good keyboard for the price and I recommend it to anyone *(but, heads-up, board is pretty much never in stock. Don't expect to be able to buy it even if you click; I would instead follow the official Twitter to see when they are doing a group buy)*.
 
-It ships on LAK PBT caps which are perfectly good, and I replaced them anyway with a set of [LCK Liquid Silver](https://jezailfunder.jp/products/lck-liquid-silver) at ¥4,900. They are low-profile with a dished centre and a properly metallic finish; against the silver case the whole board looks like a serious bit of equipment. *(Both the caps and the board keep drifting in and out of stock, so temper your expectations before you click.)*
+It ships with LAK-PBT caps which are perfectly fine (if not a little tacky with the colors), but I went ahead and replaced them with a set of [LCK Liquid Silver](https://jezailfunder.jp/products/lck-liquid-silver). They have a nice dished centre which is more comfy for my fingers and a *slick* metallic finish. It goes without saying, but they look amazing with the silver case.
 
-{{< figure src="/images/colemak/cornix-keycaps.webp" class="framed" width="1400" height="520" alt="Top-down view of both halves of a silver split keyboard with dished metallic silver keycaps" caption="Liquid Silver caps on the silver case. The knob on each half is a rotary encoder for fiddling with the volume of your lofi hip hop beats to relax/study to." >}}
+{{< figure src="/images/colemak/cornix-keycaps.webp" class="framed" width="1400" height="520" alt="View of the full Cornix board(s) showing off my pretty keycaps and so on" caption="Beautiful Liquid Silver caps on the silver case (silver-y). Behold the aforementioned completely unecessary dual rotary encoders for fiddling around with the volume of your lofi hip hop beats to relax/study to (?) or whatever." >}}
 
-The best sleeper feature of the Cornix is that **the tenting folds out of the board itself**. There are two machined struts under each half with four notched positions (6°, 12°, 18°, and 24°), so there is nothing extra to buy. On most splits tenting is an aftermarket problem you solve with pucks or printed wedges, and because that costs money and effort you tend to pick an angle early and then stick with it. Being able to change mine in ten seconds meant I spent a lot of time experimenting (I am personally a 6°/12° guy).
+I think the top sleeper pick of Cornix features, though, are **the folding tenting legs built into the case**. There are two machined struts under each half with four notched positions (6°, 12°, 18°, and 24°). Usually having a tenting feature for your board is literally some goofy 3D print that you have to glue/suction onto your frame (and then you're usually kinda stuck at that angle forever unless you print something else). So, being able to change so easily has been great to get a sense of what I prefer for tenting angles (I am personally a 6°/12° guy).
 
-{{< figure src="/images/colemak/cornix-tenting.webp" class="framed" width="1400" height="534" alt="Side-on view of the keyboard, the left half raised steeply on its fold-out strut and the right half sitting flat" caption="The struts fold out from underneath. The left half is at the top of its range (24°) here and the right one is sitting flat." >}}
+{{< figure src="/images/colemak/cornix-tenting.webp" class="framed" width="1400" height="534" alt="View of the Cornix from side on, showing the tenting legs" caption="The struts fold out from underneath like so. One half is showing the top of the tenting range (24°)." >}}
 
 ---
 
 ## Custom Mod Layers
 
-Forty-eight keys is not enough keys (if you noticed, there is no number/symbol row, arrows keys, function keys, etc). There for everything has to go *somewhere you decided to put it*.
+Forty-eight keys is not enough keys (if you noticed, there is no number/symbol row, arrow keys, function keys, etc). Therefore everything has to go *somewhere you decided to put it*.
 
-For this Cornix runs **[Vial](https://get.vial.today/)**, which is a QMK fork with a GUI that writes to the keyboard while it is running, and there is a [web version](https://vial.rocks/) that needs nothing installed at all. You change a key and it updates immediately (if there was a compile-and-flash cycle in between I might've given up on the board, honestly, that how much you end up editing your keymap). If you put a key someplace and it absolutely sucks, you usually need a day or two to make that call.
+To update the keymap, Cornix uses **[Vial](https://get.vial.today/)**, which is a QMK-fork with a GUI that writes to the keyboard flash memory while it is running. There is also a very handy [web version](https://vial.rocks/) that needs nothing to run (other than a Chromium-based browser). As soon as you map a key in your targeted layer is gets updated immediately, which makes it very useful for iterative testing; and there will be a lot of that. It usually takes a day or two to figure out if a key placement really holds or not, so you'll probably spend a lot of time here.
 
-{{< figure src="/images/colemak/keymap-nav.svg" width="873" height="335" alt="The Cornix navigation layer, with arrow keys on the right home row and macOS shortcuts on the left" caption="The navigation layer (held down with the left thumb). The right home-row (`h`,`j`,`k`,`l`) become the arrow-keys, and the shortcuts are on the left hand." >}}
+{{< figure src="/images/colemak/keymap-nav.svg" width="873" height="335" alt="Cornix navigation layer. Shows the arrow/symbols mapping on the layer" caption="Navigation layer. The right home-row (`h`,`j`,`k`,`l`) become the arrow keys, and shortcuts are placed on the left hand." >}}
 
 ### Home Row Mods
 
-I've also hopped in on using home row mods (I feel that home row mods users online *love* to proselytize about it, so I'll keep it short here). For those unfamiliar, they make the home row do two jobs: tap it for the letter, hold it for a modifier. So `A R S T` and `N E I O` are also GUI (◆), Alt (⎇), Ctrl (⎈) and Shift (⇧), mirrored outward from the index fingers. `Ctrl+C` becomes two middle fingers on opposite hands, both of which are already resting where they need to be. There are lots of opinions on which home-row keys should be mapped to where, but I use [GACS (◆⎇⎈⇧)](https://precondition.github.io/home-row-mods#gacs).
+I've also hopped in on using home row mods (I feel that home row mods users online *love* to proselytize about it, so I'll keep it short here). For those unfamiliar, the home-row keys become *tap* for the letter, *hold* for a modifier. For example, `A R S T` and `N E I O` are also GUI (◆), Alt (⎇), Ctrl (⎈) and Shift (⇧), mirrored outward from the index fingers. There are lots of opinions on which home-row keys should be mapped to where, but I use [GACS (◆⎇⎈⇧)](https://precondition.github.io/home-row-mods#gacs).
 
-{{< figure src="/images/colemak/keymap-base.svg" width="873" height="335" alt="The Cornix base layer, showing Colemak-DH with modifiers on the home row and layer keys under the thumbs" caption="The base layer with Colemak-DH. The label under a given key is what it does when you hold instead of tap it (mod-tap)." >}}
+{{< figure src="/images/colemak/keymap-base.svg" width="873" height="335" alt="Cornix base layer. It is just Colemak-DH with modifiers on the home row/layer keys under the thumbs" caption="Base layer (Colemak-DH). The label under a given key is what it does when you hold instead of tapping it (mod-tap)." >}}
 
-QMK calls this a **mod-tap**, and Vial exposes it directly. The difficulty is all in the timing: how long a hold has to be before it counts as a hold, and what happens when you roll from a modifier into a letter faster than the firmware expected. This is a solved problem and you should not try to solve it yourself. Precondition's [guide to home row mods](https://precondition.github.io/home-row-mods) is the defacto reference; reading it first will save you a lot of wasted time, so please, read the whole thing if you decide to use them. You'll end up very upset and unable to type anything if you don't configure it right.
+QMK calls this a **mod-tap** (and Vial exposes this in the `QMK Settings/Tap-Hold` menu). When setting these up there is a lot that can go wrong as there are a lot of levers. This has to do with the timing you set up for length of your tapping term (i.e, how long a hold has to be before it counts as a hold), and this is without considering what happens when you roll from a modifier into a letter faster than the firmware expected per your settings (you'll end up pressing a bunch of random key shortcuts and kill your active window panes or something bad). But, there is no need to work any of this out from scratch. Just read Precondition's [guide to home row mods](https://precondition.github.io/home-row-mods), is the de facto reference; reading it first will save you a lot of wasted time, so please, read the whole thing if you decide to use them. You'll be suffering if you don't. Exhibit: [A](https://www.reddit.com/r/KeyboardLayouts/comments/1mnm5dr/i_hate_home_row_mods_with_a_burning_passion/), [B](https://www.reddit.com/r/ErgoMechKeyboards/comments/1vw61tk/fed_up_with_home_row_mods_and_mo_layers/), & [C](https://www.reddit.com/r/ErgoMechKeyboards/comments/1du4mpc/homerow_mod_users_will_the_discomfort_be_over/).
 
 ### Combos & Chords
 
-Vial calls chords **combos**: press N keys at the same time, get out whatever mapping you set. An example of one I've set is `H` and `,` for backspace.
+Vial calls chords **combos**: press N keys at the same time, get out whatever mapping you set. An example of one I've set is `H` and `,` for backspace. If you pick a good combo they can make typing so much nicer/efficient in terms of finger spread. Like in the example above, because `H` and `,` sit next to each other in Colemak-DH (right-side bottom row under index & middle fingers) you can press that as a single motion (because it's a chord, you know, like a piano).
 
-The choice of pair is not arbitrary, and I only worked out why after picking a few bad ones. On Colemak-DH, `H` and `,` sit next to each other on the bottom row under the right index and right middle fingers, so they are on the same row and in adjacent columns but on *different fingers*. You can press that as a single motion, the way you would tap two adjacent piano keys. A pair on the same finger means rolling one finger across both keys, which is doable but slower, and a pair spread across rows or hands is really just two keys pressed carefully, which is slower than whatever you were trying to avoid in the first place.
+I've got a second chord/combo set as well, for caps-lock (which is `Tab` and `Q`) since I do not have have that key mapped on my base layer. It's, well, fine, but I don't use it too much. If anyone has any other suggestions chord/combos that you find useful please let me know. I would like to set more, but I find it a bit difficult to promote (?) something to a base layer combo instead of just putting on a standalone key on a separate layer.
 
 ---
 
 ## Using a Trackball Mouse
 
-The other thing a split gets you is a hole in the middle of your keyboard, and I put a silver Kensington SlimBlade in it.
+If you think about it for a second, a split keyboard means you get a massive hole where once was the middle of your keyboard. That is now the home for my trackball ([Kensington SlimBlade](https://www.kensington.com/p/products/electronic-control-solutions/trackball-products/slimblade-pro-trackball)).
 
-Nobody really advertises this as a benefit of going split. On a normal keyboard the mouse lives out past the number pad, so using it means picking up your whole right hand, moving it eight inches over, and then finding the home row again by feel afterwards. With the halves pushed apart the pointer sits *inside* the keyboard, roughly where `G` and `H` used to be. My hands barely move.
+I feel like not enough people do this, and I don't understand why. On a normal keyboard the mouse lives so far away from the keyboard and your right arm is forced to move back and forth loads. With the halves pushed apart the trackball *inside* the keyboard (like the beloved ThinkPad red-nipple).
 
 {{< figure src="/images/colemak/cornix-trackball.webp" class="framed" width="1400" height="588" alt="Top-down view of the two keyboard halves spread apart with a Kensington SlimBlade trackball centred between them" caption="The SlimBlade is sitting pretty smack-dab in the middle, wee-hee! This photo is from before the keycap swap, so those are the stock caps." >}}
 
-A trackball is a sphere instead of a moulded right-handed shape, so its perfect for ambidexterious use. I use it with either hand more or less at random convenience, which spreads a load that used to be entirely my right wrist's; and you know what, I never really thought about how the mouse is exclusive to the right-hand. It's quite strange that it is, and that mice are molded to the right-hand as a given (but that is a complete aside). Anyways, I essentially bought it because it was cool-looking, fit the split, and it matched the aluminum-finish on board (LOL). I later found lots of additional benefits from having used it but I will save that for another day, maybe. This [YouTube video](https://www.youtube.com/watch?v=ypS251cpaGg) pretty cleanly summarizes my thoughts though (Japanese language warning).
+By the way, the Slimblade Pro trackball isn't moulded as right-handed peripherial, so it's perfect for ambidextrous use. I use it with either hand more or less as I please, which spreads a load that used to be entirely my right wrist's; and you know what, I never really considered how strange it truly is that a mouse is exclusive to the right-hand. They are quite literally moulded to the right-hand by default, nearly as a given. Tangent aside: I just bought it because it was cool-looking/fit in the hole/matched the aluminium-finish on the board (LOL). I later found lots of additional benefits from having used it but I will save that talk for another day, maybe. This [YouTube video](https://www.youtube.com/watch?v=ypS251cpaGg) pretty cleanly summarizes my thoughts though (Japanese language warning).
 
 ---
 
 ## Resources Worth Bookmarking
 
-- **[Colemak Mod-DH](https://colemakmods.github.io/mod-dh/)**: the source of truth for the mod, including the matrix and angle variants and the reasoning behind each.
-- **[A guide to home row mods](https://precondition.github.io/home-row-mods)**: Precondition's guide, and the only one you need. Read it before you configure anything.
-- **[Vial](https://get.vial.today/)**: the firmware and the GUI. The [combos manual](https://get.vial.today/manual/combos.html) is short and worth ten minutes.
-- **[keybr](https://keybr.com/)**: teaches a new layout letter by letter rather than throwing the whole alphabet at you on day one. This is what got me to 50 WPM.
-- **[Monkeytype](https://monkeytype.com/)**: for measuring, once you can bear to look.
+- **[Colemak Mod-DH](https://colemakmods.github.io/mod-dh/)**: official mod write-up. It covers both the matrix/angle variants and explains some of the history behind why.
+- **[A guide to home row mods](https://precondition.github.io/home-row-mods)**: Again, if you really want to use home-row mods RTFM **before** you configure *anything*. I am very serious.
+- **[keybr](https://keybr.com/)**: teaches a new layout letter by letter. This is what I would reccommned for starting any new layout, or even learning to touch-type if you can't.
+- **[Monkeytype](https://monkeytype.com/)**: for measuring your WPM (I love MonkeyType).
 
 ### Conclusion
 
 I am unfortunately still ~20 WPM slower on the Cornix than I am on a QWERTY keyboard, but I don't mind. I think I will get up to speed eventually, especially if I put in a little bit more targeted practice. Colemak-DH is nice enough with its rolls that typing has become a little Zen activity that I do for fun now.
 
-I guess it is kind of like learning a new instrument. You just build up muscle-memory, learn some weird tricks and, in this case, ergonomic theory/hacks. I enjoyed the process, but I can't say that it's for everyone. I think for next time I will just learn an actual instrument though, or something comperable; I feel a keyboard layout is just a little bit too private (*"I learned this keyboard layout and all I got was this lousy article"*)! In short: I love my Cornix. Thanks.
+I guess it is kind of like learning a new instrument. You just build up muscle-memory, learn some weird tricks and, in this case, ergonomic theory/hacks. I enjoyed the process, but I can't say that it's for everyone. I think for next time I will just learn an actual instrument though, or something comparable; I feel a keyboard layout is just a little bit too private (*"I learned this keyboard layout and all I got was this lousy article"*)! In short: I love my Cornix. Thanks.
