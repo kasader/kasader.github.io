@@ -25,7 +25,7 @@ QWERTY places about one-third of English keypresses on the home row; Colemak/Col
 
 A clear example of same-finger bigrams you might not notice is the typing of regular past-tense verbs in QWERTY by making your left-middle finger hop from `E` on the top row down to `D` on the home row (`-ED`). On either Colemak variation those two letters are on opposite hands.
 
-### What the DH-Mod Changes
+### DH-Mod Changes
 
 On both measures of **home-row** and **same-finger bigrams**, Colemak-DH is actually fractionally *worse* compared to stock Colemak; the value proposition is made in reducing the number of "stretch" keypresses instead.
 
@@ -33,19 +33,17 @@ On both measures of **home-row** and **same-finger bigrams**, Colemak-DH is actu
 
 With the mod, the typing that needs a sideways reach drops from ~13% to ~8%. That is the whole modification. Again, the primary incentive for this only stands as valid for boards which can take advantage of this.
 
+One thing did get worse. My right pinky went from ~2.7% of keypresses to ~7.9%, because `O` and `;` both live in its column now. That is nearly triple. It bothers me less than the number suggests though, because I have since mapped a second `;` onto a separate layer (which I will get to later).
+
 ### Key Rolling
 
 It is a phenomenon you cannot explain without first experiencing it firsthand ([try listening for the distinct "rolling" sounds in this person's typing](https://www.youtube.com/watch?v=D0kDL7rrkRI)). Rolling while typing is one of the most satisfying aspects of the Colemak layout. It is just the stacking of bigrams and trigrams (which Colemak is heavily optimized for) in typing.
 
-For example: `ST` is left-middle & left-index, two adjacent fingers on two adjacent keys, so when you type it, it becomes one distinct "rolling" motion rather than two. `NE` is the same on the right hand. `ARST` and `NEIO` are the whole home row under four fingers in order. Typing starts feeling like the keys are [falling over like a sequence of dominos](https://youtu.be/7ff3UQUPdio?si=2m54kvv-5I7vfJG8&t=107). It is an indescribable pleasure and it never grows old.
-
-### The One Thing That Got Worse
-
-My only complaint is that my right pinky went from ~2.7% of keypresses to ~7.9%, because `O` and `;` now live in its row. That is nearly triple, but I really do not find it that bad. Everything else improves, though. In truth it doesn't affect me as much as the statistic states because I've additionally mapped a secondary key for `;` on a separate layer (of which I will discuss later).
+For example: `ST` is left-middle & left-index, two adjacent fingers on two adjacent keys, so when you type it, it becomes one distinct "rolling" motion rather than two. `NE` is the same on the right hand. `ARST` and `NEIO` are the whole home row under four fingers in order. Typing starts feeling like the keys are [falling over like a sequence of dominos](https://youtu.be/7ff3UQUPdio?si=2m54kvv-5I7vfJG8&t=107). It is really an indescribable kind of pleasure (*raaahhhhh*).
 
 ---
 
-## Learning It
+## Learning Colemak-DH
 
 |                                        | WPM      | Share of QWERTY |
 | -------------------------------------- | -------- | --------------- |
@@ -59,7 +57,7 @@ Then, ~50 WPM at a month is roughly the point where the layout stops being the b
 
 ---
 
-## Keeping QWERTY
+## Maintaining QWERTY
 
 I have been asked if I ended up losing QWERTY in this transition, and the answer is that I did not. Losing QWERTY is too high of a cost to bother with this at all if that were actually the trade being made, nobody wants to permanently handicap themselves for what could end up being almost no benefit, but I digress.
 
@@ -83,7 +81,7 @@ If anyone is worried about the confusion that might come along with knowing mult
 
 ---
 
-## The Keyboard
+## Using a Split Keyboard
 
 The Cornix LP is a 40% split with a 6063 aluminium case (sandblasted and anodized), an FR4 plate, Kailh Choc V2 switches, a rotary encoder on each half, and a 650 mAh cell per side. It runs over Bluetooth for up to three devices, with USB-C for when I would rather not think about batteries.
 
@@ -97,7 +95,7 @@ The feature I did not know I wanted is that **the tenting folds out of the board
 
 ---
 
-## The Layer Underneath
+## Custom Mod Layers
 
 Forty-two keys is not enough keys, which is not a complaint so much as it is the entire mechanism at work. There is no number row to fall back on, so every digit, bracket, arrow and function key has to go *somewhere you decided to put it*.
 
@@ -109,7 +107,7 @@ Every key on the home row does two jobs: tap it for the letter, hold it for a mo
 
 QMK calls this a **mod-tap**, and Vial exposes it directly. The difficulty is all in the timing: how long a hold has to be before it counts as a hold, and what happens when you roll from a modifier into a letter faster than the firmware expected. This is a solved problem and you should not try to solve it yourself. Precondition's [guide to home row mods](https://precondition.github.io/home-row-mods) is the reference; it is long but it is worth it, and reading it first will save you a fortnight of wondering why your keyboard keeps typing in capitals.
 
-### Combos
+### Combos & Chords
 
 Vial calls chords **combos**: press N keys at the same time, get out whatever mapping you set. An example of one I've set is `H` and `,` for backspace.
 
@@ -117,7 +115,7 @@ The choice of pair is not arbitrary, and I only worked out why after picking a f
 
 ---
 
-## The Trackball in the Middle
+## Using a Trackball Mouse
 
 The other thing a split gets you is a hole in the middle of your keyboard, and I put a silver Kensington SlimBlade in it.
 
