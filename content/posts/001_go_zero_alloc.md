@@ -2,6 +2,7 @@
 title: "Zero-Allocation Logging in Go"
 date: 2026-04-07
 tags: ["go", "compilers"]
+slug: "go-zero-alloc"
 ---
 
 Go's structured logging library (`log/slog`) is quite the clever piece of standard library code. This is thanks to the processing of log attributes `{key:value}` with **zero heap allocations**. And despite the `slog.Logger` interface (inspired by packages `uber-go/zap` and `rs/zerolog`) now long being the go-to idiom for any generic logging use-cases in Go; it is additionally highly-optimized for use in application hot-paths.

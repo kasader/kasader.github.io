@@ -1,7 +1,8 @@
 ---
-title: "Rolling Into Colemak-DH"
+title: "Colemak-DH on a 40% Split"
 date: 2026-08-26
 draft: true
+slug: "colemak-dh"
 tags: ["keyboards", "ergonomics"]
 ---
 

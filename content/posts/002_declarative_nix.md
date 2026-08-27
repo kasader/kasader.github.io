@@ -2,6 +2,7 @@
 title: "Declarative Systems With Nix"
 date: 2026-05-12
 tags: ["nix", "linux"]
+slug: "declarative-nix"
 ---
 
 A local development environment is usually a set-and-forget affair (until something breaks, anyway). Mine had accreted for years across two machines and two operating systems, and the state of each was known only to whichever shell history survived last. So I rebuilt the whole thing declaratively with **Nix**, and I have been enjoying the process far more than I expected to.
