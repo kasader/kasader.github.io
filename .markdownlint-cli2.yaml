@@ -6,6 +6,10 @@ config:
   # Go sources are tab-indented, so fenced code blocks legitimately contain tabs.
   MD010:
     code_blocks: false
+  # Shortcode parameters carry URLs (`{{< quote url="https://..." >}}`), which
+  # MD034 reads as prose and wants turned into links. Bare URLs in actual prose
+  # are still linkified by Goldmark, and lychee checks every href after a build.
+  MD034: false
   # The theme renders front-matter `title` as the page <h1>, so a second
   # top-level heading in the body would be a duplicate h1.
   MD025:

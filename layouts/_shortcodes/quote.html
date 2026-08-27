@@ -1,0 +1,12 @@
+{{- /* A quotation with its source attached.
+       {{< quote cite="Name, where they said it" url="https://..." >}}
+       (insert quotation here)
+       {{< /quote >}}                                                        */ -}}
+{{- $cite := .Get "cite" -}}
+{{- $url := .Get "url" -}}
+<blockquote{{ with $url }} cite="{{ . }}"{{ end }}>
+{{ .Inner | strings.TrimSpace | .Page.RenderString (dict "display" "block") }}
+{{- with $cite }}
+<footer>{{ with $url }}<a href="{{ . }}">{{ end }}<cite>{{ $cite }}</cite>{{ if $url }}</a>{{ end }}</footer>
+{{- end }}
+</blockquote>
