@@ -1,7 +1,6 @@
 ---
 title: "Colemak-DH on a 40% Split"
 date: 2026-08-26
-draft: true
 slug: "colemak-dh"
 tags: ["keyboards", "ergonomics"]
 ---
@@ -20,7 +19,7 @@ This whole process was kicked off by a purchase: I bought a [Cornix LP](https://
 
 Below I've got **(3)** different heatmaps which show off the difference between **QWERTY**, **Colemak**, and **Colemak-DH** in order to best illustrate the keypress distributions for each:
 
-{{< figure src="/images/colemak/heatmap.svg" width="610" height="678" alt="Keypress heatmaps for QWERTY, Colemak and Colemak-DH over the same body of text" caption="**NOTE**: *Stretch* is the share landing in the two inner columns, the ones an index finger reaches by splaying sideways. *Same-Finger* is same-finger bigrams (explained below)." >}}
+{{< figure src="/images/colemak/heatmap.svg" width="610" height="678" alt="Keypress heatmaps for QWERTY, Colemak and Colemak-DH over the same body of text" caption="**NOTE**: *Stretch* is the share landing in the two inner columns, the ones an index finger reaches by splaying sideways. *Same-Finger* are titular bigrams (explained below)." >}}
 
 The mod has two different forms depending on whether your rows are staggered like a typical keyboard (typewriter-style) or stacked in columns; a column-staggered board like the Cornix takes the **matrix** version, which is pictured above.
 
@@ -72,7 +71,7 @@ The flip side is that the layout does not travel: my laptop keyboard is QWERTY, 
 
 This could sound like a limitation, maybe, but I maintain that it is the opposite. MacOS ships with Colemak pre-installed but not Colemak-DH, so doing this in software would mean maintaining a custom layout on every machine I touch and then, like, hastily swapping out the keymap configuration to QWERTY and like stumbling around the settings with my cursor like a fool, if anybody tries to use my machine (I also maintain a toggleable layer on my Cornix which provides QWERTY input for anyone who needs it).
 
-{{< figure src="/images/colemak/keymap-qwerty.svg" width="873" height="335" alt="The Cornix QWERTY layer, a full QWERTY arrangement toggled on with a single key" caption="That QWERTY layer, toggled on with the `L5` key. Anyone can sit down and type." >}}
+{{< figure src="/images/colemak/keymap-qwerty.svg" width="873" height="335" alt="The Cornix QWERTY layer, a full QWERTY arrangement toggled on with a single key" caption="QWERTY layer, toggled with the `L5` key. Almost exclusively for people who want to try typing on my board (they don't know Colemak-DH)." >}}
 
 Thus, really, keeping it within the hardware is less work by a massive margin.
 
@@ -92,11 +91,11 @@ The Cornix LP is a 40% split with an aluminium case, an FR4 plate, Kailh Choc V2
 
 It ships on LAK PBT caps which are perfectly good, and I replaced them anyway with a set of [LCK Liquid Silver](https://jezailfunder.jp/products/lck-liquid-silver) at ¥4,900. They are low-profile with a dished centre and a properly metallic finish; against the silver case the whole board looks like a serious bit of equipment. *(Both the caps and the board keep drifting in and out of stock, so temper your expectations before you click.)*
 
-{{< figure src="/images/colemak/cornix-keycaps.webp" class="framed" width="1400" height="520" alt="Top-down view of both halves of a silver split keyboard with dished metallic silver keycaps" caption="The Liquid Silver caps on the silver case. The knob on each half is a rotary encoder, and the clear window beside it shows the wireless module." >}}
+{{< figure src="/images/colemak/cornix-keycaps.webp" class="framed" width="1400" height="520" alt="Top-down view of both halves of a silver split keyboard with dished metallic silver keycaps" caption="Liquid Silver caps on the silver case. The knob on each half is a rotary encoder for fiddling with the volume of your lofi hip hop beats to relax/study to." >}}
 
-The best sleeper feature of the board is that **the tenting folds out of the board itself**. There are two machined struts under each half with four notched positions (6°, 12°, 18°, and 24°), so there is nothing extra to buy. On most splits tenting is an aftermarket problem you solve with pucks or printed wedges, and because that costs money and effort you tend to pick an angle early and then stick with it. Being able to change mine in ten seconds meant I spent a lot of time experimenting (I am personally a 6°/12° guy).
+The best sleeper feature of the Cornix is that **the tenting folds out of the board itself**. There are two machined struts under each half with four notched positions (6°, 12°, 18°, and 24°), so there is nothing extra to buy. On most splits tenting is an aftermarket problem you solve with pucks or printed wedges, and because that costs money and effort you tend to pick an angle early and then stick with it. Being able to change mine in ten seconds meant I spent a lot of time experimenting (I am personally a 6°/12° guy).
 
-{{< figure src="/images/colemak/cornix-tenting.webp" class="framed" width="1400" height="534" alt="Side-on view of the keyboard, the left half raised steeply on its fold-out strut and the right half sitting flat" caption="The struts fold out from underneath. The left half is near the top of its range here and the right one is sitting flat." >}}
+{{< figure src="/images/colemak/cornix-tenting.webp" class="framed" width="1400" height="534" alt="Side-on view of the keyboard, the left half raised steeply on its fold-out strut and the right half sitting flat" caption="The struts fold out from underneath. The left half is at the top of its range (24°) here and the right one is sitting flat." >}}
 
 ---
 
@@ -106,13 +105,13 @@ Forty-eight keys is not enough keys (if you noticed, there is no number/symbol r
 
 For this Cornix runs **[Vial](https://get.vial.today/)**, which is a QMK fork with a GUI that writes to the keyboard while it is running, and there is a [web version](https://vial.rocks/) that needs nothing installed at all. You change a key and it updates immediately (if there was a compile-and-flash cycle in between I might've given up on the board, honestly, that how much you end up editing your keymap). If you put a key someplace and it absolutely sucks, you usually need a day or two to make that call.
 
-{{< figure src="/images/colemak/keymap-nav.svg" width="873" height="335" alt="The Cornix navigation layer, with arrow keys on the right home row and macOS shortcuts on the left" caption="The navigation layer, held down with the left thumb. Arrows land on the right home row, and the shortcuts I use constantly sit under the left hand." >}}
+{{< figure src="/images/colemak/keymap-nav.svg" width="873" height="335" alt="The Cornix navigation layer, with arrow keys on the right home row and macOS shortcuts on the left" caption="The navigation layer (held down with the left thumb). The right home-row (`h`,`j`,`k`,`l`) become the arrow-keys, and the shortcuts are on the left hand." >}}
 
 ### Home Row Mods
 
-I've also hopped on the absolute hypefest which are home row mods (I feel that nobody will shut up about it online after they start using it). They make the home row do two jobs: tap it for the letter, hold it for a modifier. So `A R S T` and `N E I O` are also GUI (◆), Alt (⎇), Ctrl (⎈) and Shift (⇧), mirrored outward from the index fingers. `Ctrl+C` becomes two middle fingers on opposite hands, both of which are already resting where they need to be. There are lots of opinions on which home-row keys should be mapped to where, but I use [GACS (◆⎇⎈⇧)](https://precondition.github.io/home-row-mods#gacs).
+I've also hopped in on using home row mods (I feel that home row mods users online *love* to proselytize about it, so I'll keep it short here). For those unfamiliar, they make the home row do two jobs: tap it for the letter, hold it for a modifier. So `A R S T` and `N E I O` are also GUI (◆), Alt (⎇), Ctrl (⎈) and Shift (⇧), mirrored outward from the index fingers. `Ctrl+C` becomes two middle fingers on opposite hands, both of which are already resting where they need to be. There are lots of opinions on which home-row keys should be mapped to where, but I use [GACS (◆⎇⎈⇧)](https://precondition.github.io/home-row-mods#gacs).
 
-{{< figure src="/images/colemak/keymap-base.svg" width="873" height="335" alt="The Cornix base layer, showing Colemak-DH with modifiers on the home row and layer keys under the thumbs" caption="My base layer, drawn from the keymap on the board itself. The small label under a key is what it does when you hold it rather than tap it." >}}
+{{< figure src="/images/colemak/keymap-base.svg" width="873" height="335" alt="The Cornix base layer, showing Colemak-DH with modifiers on the home row and layer keys under the thumbs" caption="The base layer with Colemak-DH. The label under a given key is what it does when you hold instead of tap it (mod-tap)." >}}
 
 QMK calls this a **mod-tap**, and Vial exposes it directly. The difficulty is all in the timing: how long a hold has to be before it counts as a hold, and what happens when you roll from a modifier into a letter faster than the firmware expected. This is a solved problem and you should not try to solve it yourself. Precondition's [guide to home row mods](https://precondition.github.io/home-row-mods) is the defacto reference; reading it first will save you a lot of wasted time, so please, read the whole thing if you decide to use them. You'll end up very upset and unable to type anything if you don't configure it right.
 
@@ -130,7 +129,7 @@ The other thing a split gets you is a hole in the middle of your keyboard, and I
 
 Nobody really advertises this as a benefit of going split. On a normal keyboard the mouse lives out past the number pad, so using it means picking up your whole right hand, moving it eight inches over, and then finding the home row again by feel afterwards. With the halves pushed apart the pointer sits *inside* the keyboard, roughly where `G` and `H` used to be. My hands barely move.
 
-{{< figure src="/images/colemak/cornix-trackball.webp" class="framed" width="1400" height="588" alt="Top-down view of the two keyboard halves spread apart with a Kensington SlimBlade trackball centred between them" caption="The SlimBlade sitting where a number pad would be on any other keyboard. This photo is from before the keycap swap, so those are the stock caps; their orange digits and green modifiers are a fair map of everything a 40% has to find room for on a layer." >}}
+{{< figure src="/images/colemak/cornix-trackball.webp" class="framed" width="1400" height="588" alt="Top-down view of the two keyboard halves spread apart with a Kensington SlimBlade trackball centred between them" caption="The SlimBlade is sitting pretty smack-dab in the middle, wee-hee! This photo is from before the keycap swap, so those are the stock caps." >}}
 
 A trackball is a sphere instead of a moulded right-handed shape, so its perfect for ambidexterious use. I use it with either hand more or less at random convenience, which spreads a load that used to be entirely my right wrist's; and you know what, I never really thought about how the mouse is exclusive to the right-hand. It's quite strange that it is, and that mice are molded to the right-hand as a given (but that is a complete aside). Anyways, I essentially bought it because it was cool-looking, fit the split, and it matched the aluminum-finish on board (LOL). I later found lots of additional benefits from having used it but I will save that for another day, maybe. This [YouTube video](https://www.youtube.com/watch?v=ypS251cpaGg) pretty cleanly summarizes my thoughts though (Japanese language warning).
 
