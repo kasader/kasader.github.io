@@ -17,15 +17,31 @@ This whole process was kicked off by a purchase: I bought a [Cornix LP](https://
 
 Below I've got **(3)** different heatmaps which show off the difference between **QWERTY**, **Colemak**, and **Colemak-DH** in order to best illustrate the keypress distributions for each:
 
-{{< figure src="/images/colemak/heatmap.svg" width="610" height="678" alt="Keypress heatmaps for QWERTY, Colemak and Colemak-DH over the same body of text" caption="**NOTE**: *Stretch* is the share landing in the two inner columns, the ones an index finger reaches by splaying sideways." >}}
+{{< figure src="/images/colemak/heatmap.svg" width="610" height="678" alt="Keypress heatmaps for QWERTY, Colemak and Colemak-DH over the same body of text" caption="**NOTE**: *Stretch* is the share landing in the two inner columns, the ones an index finger reaches by splaying sideways. *Same-Finger* is same-finger bigrams (explained below)." >}}
 
-QWERTY puts a third of my keypresses on the home row; either Colemak puts about two thirds of them there. Same-finger bigrams (one finger asked to hit two keys in a row, which is the most irritating thing a layout can do) fall from ~4.6% to ~1.3%. The clearest example is one you type constantly without noticing: on QWERTY every regular past-tense verb ends by making your left middle finger hop from `E` on the top row down to `D` on the home row. On either Colemak those two letters are on opposite hands.
+The mod has two different forms depending on whether your rows are staggered like a typical keyboard (typewriter-style) or stacked in columns; a column-staggered board like the Cornix takes the **matrix** version, which is pictured above.
 
-On both of those measures, though, stock Colemak and Colemak-DH are indistinguishable. The mod is fractionally *worse* on home row and identical on same-finger bigrams. Its entire case is the third number. `D` and `H` are frequent letters, and stock Colemak parks them in the two inner columns, the ones an index finger reaches by splaying sideways rather than curling under. Mod-DH swaps them for the far rarer `G` and `M`, and the share of my typing that needs that sideways reach drops from 13% to 8%. That is the whole modification. It comes in two flavours depending on whether your rows are staggered like a typewriter or stacked in columns; a column-staggered board like the Cornix takes the **matrix** version, which is the one above.
+QWERTY places about one-third of English keypresses on the home row; Colemak/Colemak-DH puts about two-thirds of them there. Very uncomforatable same-finger bigrams (one finger asked to hit two different keys in a row) fall from ~4.6% to ~1.3%.
 
-And this is where the rolling comes from, which is the part I find genuinely difficult to describe without sounding like I have had some sort of religious experience or something. `ST` is left middle to left index, two adjacent fingers on two adjacent keys, one motion rather than two. `NE` is the same on the right hand. `ARST` and `NEIO` are the whole home row under four fingers in order. Typing starts feeling like the keys are [falling over in like a sequence of dominos](https://youtu.be/7ff3UQUPdio?si=2m54kvv-5I7vfJG8&t=107). It is an indescibable pleasure which does not grow old.
+A clear example of same-finger bigrams you might not notice is the typing of regular past-tense verbs in QWERTY by making your left-middle finger hop from `E` on the top row down to `D` on the home row (`-ED`). On either Colemak variation those two letters are on opposite hands.
 
-My only complaint is that my right pinky went from ~2.7% of keypresses to ~7.9%, because `O` and `;` now live in its row. That is nearly triple, but I really do not find it that bad. Everything else improves, though.
+### What the DH-Mod Changes
+
+On both measures of **home-row** and **same-finger bigrams**, Colemak-DH is actually fractionally *worse* comapred to stock Colemak; the value proposition is made in reducing the number "stretch" keypresses instead.
+
+`D` and `H` are frequent letters, and stock Colemak places them in the two inner columns, where your index fingers reach them by splaying sideways. Mod-DH swaps them for the far rarer `G` and `M` keys, and allows you to curl your fingers down instead. This is the common layout adopted over the stock Colemark for ortholinear/column-staggered keyboards because the key-column alignment actually reduces the total finger travel-distance for home-row VS stretch keys.
+
+With the mod, the typing that needs that a sideways reach drops from ~13% to ~8%. That is the whole modification. Again, the primary incentive for this only stands as valid for boards which can take advantage of this.
+
+### Key Rolling
+
+It is a phenomenon you cannot explain without first experiencing it firsthand ([try listening for the distinct "rolling" sounds in this person's typing](https://www.youtube.com/watch?v=D0kDL7rrkRI)). Rolling while typing is one of the most satisfying aspects of the Colemak layout. It is just the stacking of bigrams and trigrams (which Colemak is heavily optimized for) in typing.
+
+For example:  `ST` is left-middle & left-index, two adjacent fingers on two adjacent keys, so when you type it, it becomes one distinct "rolling" motion rather than two. `NE` is the same on the right hand. `ARST` and `NEIO` are the whole home row under four fingers in order. Typing starts feeling like the keys are [falling over like a sequence of dominos](https://youtu.be/7ff3UQUPdio?si=2m54kvv-5I7vfJG8&t=107). It is an indescribable pleasure and it never grows old.
+
+### The One Thing That Got Worse
+
+My only complaint is that my right pinky went from ~2.7% of keypresses to ~7.9%, because `O` and `;` now live in its row. That is nearly triple, but I really do not find it that bad. Everything else improves, though. In truth it doesn't affect me as much as the statistic states because I've additionally mapped a secondary key for `;` on a separate layer (of which I will discuss later).
 
 ---
 
@@ -33,7 +49,7 @@ My only complaint is that my right pinky went from ~2.7% of keypresses to ~7.9%,
 
 |                                        | WPM      | Share of QWERTY |
 | -------------------------------------- | -------- | --------------- |
-| QWERTY, then and still                 | 120      | N/A             |
+| QWERTY, then and now                   | 120      | N/A             |
 | Colemak-DH, after one month            | ~50      | 42%             |
 | Colemak-DH, after three to four months | 90 – 100 | 75 – 83%        |
 
