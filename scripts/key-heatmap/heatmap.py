@@ -130,7 +130,7 @@ def render_svg(boards, label):
         f'<text class="lg" x="{PAD_X + BUCKETS * swatch}" y="{legend_y + 25}" '
         f'text-anchor="end">high</text>',
         f'<text class="bs" x="{PAD_X + BOARD_W}" y="{legend_y + 25}" text-anchor="end">'
-        f'one corpus — {total:,} keypresses {label}</text>',
+        f'corpus size: {total:,} keypresses {label}</text>',
     ]
 
     fills = "".join(f".b{i}{{fill:{LIGHT[i]}}}text.b{i}{{fill:{INK_LIGHT[i]}}}"
@@ -190,7 +190,7 @@ def main():
                     help="which files to read under INPUT (default: **/*.md)")
     ap.add_argument("--exclude", metavar="PATTERN", action="append", default=[],
                     help="skip files matching this glob; repeatable")
-    ap.add_argument("--label", default="of the input corpus",
+    ap.add_argument("--label", default="(kasader.dev)",
                     help="trailing words for the legend's corpus note")
     ap.add_argument("-q", "--quiet", action="store_true",
                     help="suppress the summary written to stderr")

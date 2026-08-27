@@ -1,0 +1,304 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 610 678" width="610" height="678" role="img" aria-labelledby="ttl desc">
+<title id="ttl">Keypress heatmap: QWERTY, Colemak, Colemak-DH (matrix)</title>
+<desc id="desc">Three-row, ten-column key grids for QWERTY, Colemak, Colemak-DH (matrix), each shaded by how often the key is pressed over the same body of text. On QWERTY, 32 percent of keypresses land on the home row, 27 percent in the two inner columns that an index finger reaches by splaying sideways, and 4.7 percent are same-finger bigrams. On Colemak, 71 percent of keypresses land on the home row, 14 percent in the two inner columns that an index finger reaches by splaying sideways, and 1.1 percent are same-finger bigrams. On Colemak-DH (matrix), 67 percent of keypresses land on the home row, 9 percent in the two inner columns that an index finger reaches by splaying sideways, and 1.1 percent are same-finger bigrams.</desc>
+<style>
+  .srf{fill:#fffdf8}
+  .bt{font:600 13px/1 ui-serif,Iowan Old Style,Georgia,serif;fill:#2b2520}
+  .bs,.lg{font:400 10.5px/1 ui-sans-serif,system-ui,sans-serif;fill:#6b6355}
+  .kl{font:600 14px/1 ui-monospace,SFMono-Regular,Menlo,monospace;text-anchor:middle}
+  .kp{font:400 8.5px/1 ui-sans-serif,system-ui,sans-serif;text-anchor:middle;opacity:.75}
+  .k{stroke:#fffdf8;stroke-width:1.5}
+  .b0{fill:#f6f0e0}text.b0{fill:#3a3128}.b1{fill:#f0e4c8}text.b1{fill:#3a3128}.b2{fill:#e8d6ab}text.b2{fill:#3a3128}.b3{fill:#dec489}text.b3{fill:#3a3128}.b4{fill:#d2ad63}text.b4{fill:#3a3128}.b5{fill:#c09443}text.b5{fill:#3a3128}.b6{fill:#a67a2d}text.b6{fill:#faf6ec}.b7{fill:#87601e}text.b7{fill:#faf6ec}.b8{fill:#684713}text.b8{fill:#faf6ec}.b9{fill:#48300c}text.b9{fill:#faf6ec}
+  @media (prefers-color-scheme: dark){
+    .srf{fill:#141310}
+    .bt{fill:#e8e1d3}
+    .bs,.lg{fill:#8f8878}
+    .k{stroke:#141310}
+    .b0{fill:#272521}text.b0{fill:#b5ad9b}.b1{fill:#332d20}text.b1{fill:#b5ad9b}.b2{fill:#453922}text.b2{fill:#b5ad9b}.b3{fill:#5b4926}text.b3{fill:#ded5be}.b4{fill:#745c2b}text.b4{fill:#ded5be}.b5{fill:#907432}text.b5{fill:#ded5be}.b6{fill:#ad8f3d}text.b6{fill:#2a2416}.b7{fill:#c9ab52}text.b7{fill:#2a2416}.b8{fill:#e0c67c}text.b8{fill:#2a2416}.b9{fill:#f2e0ae}text.b9{fill:#2a2416}
+  }
+</style>
+<rect class="srf" x="0" y="0" width="610" height="678" rx="10"/>
+<g transform="translate(0,24)">
+<text class="bt" x="26" y="13">QWERTY</text>
+<text class="bs" x="584" y="13" text-anchor="end">home row 32%  ·  stretch 27%  ·  same-finger 4.7%</text>
+<rect class="k b0" x="26" y="28" width="48" height="48" rx="7"/>
+<text class="kl b0" x="50.0" y="50">q</text>
+<text class="kp b0" x="50.0" y="64">0.1</text>
+<rect class="k b1" x="80" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="104.0" y="50">w</text>
+<text class="kp b1" x="104.0" y="64">1.9</text>
+<rect class="k b9" x="134" y="28" width="48" height="48" rx="7"/>
+<text class="kl b9" x="158.0" y="50">e</text>
+<text class="kp b9" x="158.0" y="64">11.3</text>
+<rect class="k b4" x="188" y="28" width="48" height="48" rx="7"/>
+<text class="kl b4" x="212.0" y="50">r</text>
+<text class="kp b4" x="212.0" y="64">5.5</text>
+<rect class="k b8" x="242" y="28" width="48" height="48" rx="7"/>
+<text class="kl b8" x="266.0" y="50">t</text>
+<text class="kp b8" x="266.0" y="64">9.1</text>
+<rect class="k b1" x="320" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="344.0" y="50">y</text>
+<text class="kp b1" x="344.0" y="64">2.2</text>
+<rect class="k b2" x="374" y="28" width="48" height="48" rx="7"/>
+<text class="kl b2" x="398.0" y="50">u</text>
+<text class="kp b2" x="398.0" y="64">2.4</text>
+<rect class="k b6" x="428" y="28" width="48" height="48" rx="7"/>
+<text class="kl b6" x="452.0" y="50">i</text>
+<text class="kp b6" x="452.0" y="64">7.5</text>
+<rect class="k b6" x="482" y="28" width="48" height="48" rx="7"/>
+<text class="kl b6" x="506.0" y="50">o</text>
+<text class="kp b6" x="506.0" y="64">7.7</text>
+<rect class="k b1" x="536" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="560.0" y="50">p</text>
+<text class="kp b1" x="560.0" y="64">2.1</text>
+<rect class="k b6" x="26" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="50.0" y="104">a</text>
+<text class="kp b6" x="50.0" y="118">7.7</text>
+<rect class="k b5" x="80" y="82" width="48" height="48" rx="7"/>
+<text class="kl b5" x="104.0" y="104">s</text>
+<text class="kp b5" x="104.0" y="118">6.3</text>
+<rect class="k b3" x="134" y="82" width="48" height="48" rx="7"/>
+<text class="kl b3" x="158.0" y="104">d</text>
+<text class="kp b3" x="158.0" y="118">3.6</text>
+<rect class="k b1" x="188" y="82" width="48" height="48" rx="7"/>
+<text class="kl b1" x="212.0" y="104">f</text>
+<text class="kp b1" x="212.0" y="118">2.0</text>
+<rect class="k b2" x="242" y="82" width="48" height="48" rx="7"/>
+<text class="kl b2" x="266.0" y="104">g</text>
+<text class="kp b2" x="266.0" y="118">2.3</text>
+<rect class="k b4" x="320" y="82" width="48" height="48" rx="7"/>
+<text class="kl b4" x="344.0" y="104">h</text>
+<text class="kp b4" x="344.0" y="118">4.9</text>
+<rect class="k b0" x="374" y="82" width="48" height="48" rx="7"/>
+<text class="kl b0" x="398.0" y="104">j</text>
+<text class="kp b0" x="398.0" y="118">0.1</text>
+<rect class="k b1" x="428" y="82" width="48" height="48" rx="7"/>
+<text class="kl b1" x="452.0" y="104">k</text>
+<text class="kp b1" x="452.0" y="118">1.1</text>
+<rect class="k b3" x="482" y="82" width="48" height="48" rx="7"/>
+<text class="kl b3" x="506.0" y="104">l</text>
+<text class="kp b3" x="506.0" y="118">4.1</text>
+<rect class="k b0" x="536" y="82" width="48" height="48" rx="7"/>
+<text class="kl b0" x="560.0" y="104">;</text>
+<text class="kp b0" x="560.0" y="118">0.3</text>
+<rect class="k b0" x="26" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="50.0" y="158">z</text>
+<text class="kp b0" x="50.0" y="172">0.1</text>
+<rect class="k b0" x="80" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="104.0" y="158">x</text>
+<text class="kp b0" x="104.0" y="172">0.3</text>
+<rect class="k b2" x="134" y="136" width="48" height="48" rx="7"/>
+<text class="kl b2" x="158.0" y="158">c</text>
+<text class="kp b2" x="158.0" y="172">3.1</text>
+<rect class="k b0" x="188" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="212.0" y="158">v</text>
+<text class="kp b0" x="212.0" y="172">0.9</text>
+<rect class="k b1" x="242" y="136" width="48" height="48" rx="7"/>
+<text class="kl b1" x="266.0" y="158">b</text>
+<text class="kp b1" x="266.0" y="172">1.6</text>
+<rect class="k b6" x="320" y="136" width="48" height="48" rx="7"/>
+<text class="kl b6" x="344.0" y="158">n</text>
+<text class="kp b6" x="344.0" y="172">6.9</text>
+<rect class="k b2" x="374" y="136" width="48" height="48" rx="7"/>
+<text class="kl b2" x="398.0" y="158">m</text>
+<text class="kp b2" x="398.0" y="172">2.6</text>
+<rect class="k b1" x="428" y="136" width="48" height="48" rx="7"/>
+<text class="kl b1" x="452.0" y="158">,</text>
+<text class="kp b1" x="452.0" y="172">1.1</text>
+<rect class="k b0" x="482" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="506.0" y="158">.</text>
+<text class="kp b0" x="506.0" y="172">1.1</text>
+<rect class="k b0" x="536" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="560.0" y="158">/</text>
+<text class="kp b0" x="560.0" y="172">&lt;.1</text>
+</g>
+<g transform="translate(0,234)">
+<text class="bt" x="26" y="13">Colemak</text>
+<text class="bs" x="584" y="13" text-anchor="end">home row 71%  ·  stretch 14%  ·  same-finger 1.1%</text>
+<rect class="k b0" x="26" y="28" width="48" height="48" rx="7"/>
+<text class="kl b0" x="50.0" y="50">q</text>
+<text class="kp b0" x="50.0" y="64">0.1</text>
+<rect class="k b1" x="80" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="104.0" y="50">w</text>
+<text class="kp b1" x="104.0" y="64">1.9</text>
+<rect class="k b1" x="134" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="158.0" y="50">f</text>
+<text class="kp b1" x="158.0" y="64">2.0</text>
+<rect class="k b1" x="188" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="212.0" y="50">p</text>
+<text class="kp b1" x="212.0" y="64">2.1</text>
+<rect class="k b2" x="242" y="28" width="48" height="48" rx="7"/>
+<text class="kl b2" x="266.0" y="50">g</text>
+<text class="kp b2" x="266.0" y="64">2.3</text>
+<rect class="k b0" x="320" y="28" width="48" height="48" rx="7"/>
+<text class="kl b0" x="344.0" y="50">j</text>
+<text class="kp b0" x="344.0" y="64">0.1</text>
+<rect class="k b3" x="374" y="28" width="48" height="48" rx="7"/>
+<text class="kl b3" x="398.0" y="50">l</text>
+<text class="kp b3" x="398.0" y="64">4.1</text>
+<rect class="k b2" x="428" y="28" width="48" height="48" rx="7"/>
+<text class="kl b2" x="452.0" y="50">u</text>
+<text class="kp b2" x="452.0" y="64">2.4</text>
+<rect class="k b1" x="482" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="506.0" y="50">y</text>
+<text class="kp b1" x="506.0" y="64">2.2</text>
+<rect class="k b0" x="536" y="28" width="48" height="48" rx="7"/>
+<text class="kl b0" x="560.0" y="50">;</text>
+<text class="kp b0" x="560.0" y="64">0.3</text>
+<rect class="k b6" x="26" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="50.0" y="104">a</text>
+<text class="kp b6" x="50.0" y="118">7.7</text>
+<rect class="k b4" x="80" y="82" width="48" height="48" rx="7"/>
+<text class="kl b4" x="104.0" y="104">r</text>
+<text class="kp b4" x="104.0" y="118">5.5</text>
+<rect class="k b5" x="134" y="82" width="48" height="48" rx="7"/>
+<text class="kl b5" x="158.0" y="104">s</text>
+<text class="kp b5" x="158.0" y="118">6.3</text>
+<rect class="k b8" x="188" y="82" width="48" height="48" rx="7"/>
+<text class="kl b8" x="212.0" y="104">t</text>
+<text class="kp b8" x="212.0" y="118">9.1</text>
+<rect class="k b3" x="242" y="82" width="48" height="48" rx="7"/>
+<text class="kl b3" x="266.0" y="104">d</text>
+<text class="kp b3" x="266.0" y="118">3.6</text>
+<rect class="k b4" x="320" y="82" width="48" height="48" rx="7"/>
+<text class="kl b4" x="344.0" y="104">h</text>
+<text class="kp b4" x="344.0" y="118">4.9</text>
+<rect class="k b6" x="374" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="398.0" y="104">n</text>
+<text class="kp b6" x="398.0" y="118">6.9</text>
+<rect class="k b9" x="428" y="82" width="48" height="48" rx="7"/>
+<text class="kl b9" x="452.0" y="104">e</text>
+<text class="kp b9" x="452.0" y="118">11.3</text>
+<rect class="k b6" x="482" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="506.0" y="104">i</text>
+<text class="kp b6" x="506.0" y="118">7.5</text>
+<rect class="k b6" x="536" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="560.0" y="104">o</text>
+<text class="kp b6" x="560.0" y="118">7.7</text>
+<rect class="k b0" x="26" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="50.0" y="158">z</text>
+<text class="kp b0" x="50.0" y="172">0.1</text>
+<rect class="k b0" x="80" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="104.0" y="158">x</text>
+<text class="kp b0" x="104.0" y="172">0.3</text>
+<rect class="k b2" x="134" y="136" width="48" height="48" rx="7"/>
+<text class="kl b2" x="158.0" y="158">c</text>
+<text class="kp b2" x="158.0" y="172">3.1</text>
+<rect class="k b0" x="188" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="212.0" y="158">v</text>
+<text class="kp b0" x="212.0" y="172">0.9</text>
+<rect class="k b1" x="242" y="136" width="48" height="48" rx="7"/>
+<text class="kl b1" x="266.0" y="158">b</text>
+<text class="kp b1" x="266.0" y="172">1.6</text>
+<rect class="k b1" x="320" y="136" width="48" height="48" rx="7"/>
+<text class="kl b1" x="344.0" y="158">k</text>
+<text class="kp b1" x="344.0" y="172">1.1</text>
+<rect class="k b2" x="374" y="136" width="48" height="48" rx="7"/>
+<text class="kl b2" x="398.0" y="158">m</text>
+<text class="kp b2" x="398.0" y="172">2.6</text>
+<rect class="k b1" x="428" y="136" width="48" height="48" rx="7"/>
+<text class="kl b1" x="452.0" y="158">,</text>
+<text class="kp b1" x="452.0" y="172">1.1</text>
+<rect class="k b0" x="482" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="506.0" y="158">.</text>
+<text class="kp b0" x="506.0" y="172">1.1</text>
+<rect class="k b0" x="536" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="560.0" y="158">/</text>
+<text class="kp b0" x="560.0" y="172">&lt;.1</text>
+</g>
+<g transform="translate(0,444)">
+<text class="bt" x="26" y="13">Colemak-DH (matrix)</text>
+<text class="bs" x="584" y="13" text-anchor="end">home row 67%  ·  stretch 9%  ·  same-finger 1.1%</text>
+<rect class="k b0" x="26" y="28" width="48" height="48" rx="7"/>
+<text class="kl b0" x="50.0" y="50">q</text>
+<text class="kp b0" x="50.0" y="64">0.1</text>
+<rect class="k b1" x="80" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="104.0" y="50">w</text>
+<text class="kp b1" x="104.0" y="64">1.9</text>
+<rect class="k b1" x="134" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="158.0" y="50">f</text>
+<text class="kp b1" x="158.0" y="64">2.0</text>
+<rect class="k b1" x="188" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="212.0" y="50">p</text>
+<text class="kp b1" x="212.0" y="64">2.1</text>
+<rect class="k b1" x="242" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="266.0" y="50">b</text>
+<text class="kp b1" x="266.0" y="64">1.6</text>
+<rect class="k b0" x="320" y="28" width="48" height="48" rx="7"/>
+<text class="kl b0" x="344.0" y="50">j</text>
+<text class="kp b0" x="344.0" y="64">0.1</text>
+<rect class="k b3" x="374" y="28" width="48" height="48" rx="7"/>
+<text class="kl b3" x="398.0" y="50">l</text>
+<text class="kp b3" x="398.0" y="64">4.1</text>
+<rect class="k b2" x="428" y="28" width="48" height="48" rx="7"/>
+<text class="kl b2" x="452.0" y="50">u</text>
+<text class="kp b2" x="452.0" y="64">2.4</text>
+<rect class="k b1" x="482" y="28" width="48" height="48" rx="7"/>
+<text class="kl b1" x="506.0" y="50">y</text>
+<text class="kp b1" x="506.0" y="64">2.2</text>
+<rect class="k b0" x="536" y="28" width="48" height="48" rx="7"/>
+<text class="kl b0" x="560.0" y="50">;</text>
+<text class="kp b0" x="560.0" y="64">0.3</text>
+<rect class="k b6" x="26" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="50.0" y="104">a</text>
+<text class="kp b6" x="50.0" y="118">7.7</text>
+<rect class="k b4" x="80" y="82" width="48" height="48" rx="7"/>
+<text class="kl b4" x="104.0" y="104">r</text>
+<text class="kp b4" x="104.0" y="118">5.5</text>
+<rect class="k b5" x="134" y="82" width="48" height="48" rx="7"/>
+<text class="kl b5" x="158.0" y="104">s</text>
+<text class="kp b5" x="158.0" y="118">6.3</text>
+<rect class="k b8" x="188" y="82" width="48" height="48" rx="7"/>
+<text class="kl b8" x="212.0" y="104">t</text>
+<text class="kp b8" x="212.0" y="118">9.1</text>
+<rect class="k b2" x="242" y="82" width="48" height="48" rx="7"/>
+<text class="kl b2" x="266.0" y="104">g</text>
+<text class="kp b2" x="266.0" y="118">2.3</text>
+<rect class="k b2" x="320" y="82" width="48" height="48" rx="7"/>
+<text class="kl b2" x="344.0" y="104">m</text>
+<text class="kp b2" x="344.0" y="118">2.6</text>
+<rect class="k b6" x="374" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="398.0" y="104">n</text>
+<text class="kp b6" x="398.0" y="118">6.9</text>
+<rect class="k b9" x="428" y="82" width="48" height="48" rx="7"/>
+<text class="kl b9" x="452.0" y="104">e</text>
+<text class="kp b9" x="452.0" y="118">11.3</text>
+<rect class="k b6" x="482" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="506.0" y="104">i</text>
+<text class="kp b6" x="506.0" y="118">7.5</text>
+<rect class="k b6" x="536" y="82" width="48" height="48" rx="7"/>
+<text class="kl b6" x="560.0" y="104">o</text>
+<text class="kp b6" x="560.0" y="118">7.7</text>
+<rect class="k b0" x="26" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="50.0" y="158">z</text>
+<text class="kp b0" x="50.0" y="172">0.1</text>
+<rect class="k b0" x="80" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="104.0" y="158">x</text>
+<text class="kp b0" x="104.0" y="172">0.3</text>
+<rect class="k b2" x="134" y="136" width="48" height="48" rx="7"/>
+<text class="kl b2" x="158.0" y="158">c</text>
+<text class="kp b2" x="158.0" y="172">3.1</text>
+<rect class="k b3" x="188" y="136" width="48" height="48" rx="7"/>
+<text class="kl b3" x="212.0" y="158">d</text>
+<text class="kp b3" x="212.0" y="172">3.6</text>
+<rect class="k b0" x="242" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="266.0" y="158">v</text>
+<text class="kp b0" x="266.0" y="172">0.9</text>
+<rect class="k b1" x="320" y="136" width="48" height="48" rx="7"/>
+<text class="kl b1" x="344.0" y="158">k</text>
+<text class="kp b1" x="344.0" y="172">1.1</text>
+<rect class="k b4" x="374" y="136" width="48" height="48" rx="7"/>
+<text class="kl b4" x="398.0" y="158">h</text>
+<text class="kp b4" x="398.0" y="172">4.9</text>
+<rect class="k b1" x="428" y="136" width="48" height="48" rx="7"/>
+<text class="kl b1" x="452.0" y="158">,</text>
+<text class="kp b1" x="452.0" y="172">1.1</text>
+<rect class="k b0" x="482" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="506.0" y="158">.</text>
+<text class="kp b0" x="506.0" y="172">1.1</text>
+<rect class="k b0" x="536" y="136" width="48" height="48" rx="7"/>
+<text class="kl b0" x="560.0" y="158">/</text>
+<text class="kp b0" x="560.0" y="172">&lt;.1</text>
+</g>
+<text class="bs" x="26" y="642">share of keypresses</text><rect class="b0" x="26" y="648" width="24" height="10" rx="2"/><rect class="b1" x="50" y="648" width="24" height="10" rx="2"/><rect class="b2" x="74" y="648" width="24" height="10" rx="2"/><rect class="b3" x="98" y="648" width="24" height="10" rx="2"/><rect class="b4" x="122" y="648" width="24" height="10" rx="2"/><rect class="b5" x="146" y="648" width="24" height="10" rx="2"/><rect class="b6" x="170" y="648" width="24" height="10" rx="2"/><rect class="b7" x="194" y="648" width="24" height="10" rx="2"/><rect class="b8" x="218" y="648" width="24" height="10" rx="2"/><rect class="b9" x="242" y="648" width="24" height="10" rx="2"/><text class="lg" x="26" y="673">low</text><text class="lg" x="266" y="673" text-anchor="end">high</text><text class="bs" x="584" y="673" text-anchor="end">corpus size: 19,010 keypresses (kasader.dev)</text>
+</svg>
