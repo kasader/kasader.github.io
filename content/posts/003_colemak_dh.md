@@ -31,7 +31,7 @@ On both measures of **home-row** and **same-finger bigrams**, Colemak-DH is actu
 
 `D` and `H` are frequent letters, and stock Colemak places them in the two inner columns, where your index fingers reach them by splaying sideways. Mod-DH swaps them for the far rarer `G` and `M` keys, and allows you to curl your fingers down instead. This is the common layout adopted over stock Colemak for ortholinear/column-staggered keyboards because the key-column alignment actually reduces the total finger travel-distance for home-row VS stretch keys.
 
-With the mod, the typing that needs a sideways reach drops from ~13% to ~8%. That is the whole modification. Again, the primary incentive for this only stands as valid for boards which can take advantage of this.
+With the mod, the typing that needs a sideways reach drops from ~13% to ~9%. That is the whole modification. Again, the primary incentive for this only stands as valid for boards which can take advantage of this.
 
 One thing did get worse. My right pinky went from ~2.7% of keypresses to ~7.9%, because `O` and `;` both live in its column now. That is nearly triple. It bothers me less than the number suggests though, because I have since mapped a second `;` onto a separate layer (which I will get to later).
 
