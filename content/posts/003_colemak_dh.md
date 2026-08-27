@@ -65,17 +65,17 @@ I have been asked if I ended up losing QWERTY in this transition, and the answer
 
 Thankfully, I did not lose any of my WPM in QWERTY compared to when I started; and I suppose that this is due to an active/intentional logical separation that I maintain between the physical keyboard styles and the key layouts that I use with them. I've written my Cornix keymap into the board's flash memory (see: [Vial.rocks](https://vial.rocks/)), so there is no required config and/or per-machine setup.
 
-### Doing It in Software
+### Keymap Configuration
 
-The flip side is that the layout does not travel: my laptop keyboard is QWERTY, and every other generic borrowed keyboard is QWERTY.
+I do not switch to Colemak-DH as a keypress mapping that I enable in my OS. I have hard configured my Cornix keymap to the Colemak-DH layout, and therefore it's not portable (other than physically). I don't think this is a problem, though.
 
-This could sound like a limitation, maybe, but I maintain that it is the opposite. MacOS ships with Colemak pre-installed but not Colemak-DH, so doing this in software would mean maintaining a custom layout on every machine I touch and then, like, hastily swapping out the keymap configuration to QWERTY and like stumbling around the settings with my cursor like a fool, if anybody tries to use my machine (I also maintain a toggleable layer on my Cornix which provides QWERTY input for anyone who needs it).
+For example, MacOS ships with Colemak pre-installed but not Colemak-DH, so doing this in software would mean maintaining a custom layout on every machine I touch and then, like, hastily swapping out the keymap configuration to QWERTY and/or like stumbling around the in settings with my cursor like a big klutz if anybody happened to ask to use my machine (I also maintain a toggleable layer on my Cornix which provides QWERTY input for anyone who needs it).
 
 {{< figure src="/images/colemak/keymap-qwerty.svg" width="873" height="335" alt="The Cornix QWERTY layer, a full QWERTY arrangement toggled on with a single key" caption="QWERTY layer, toggled with the `L5` key. Almost exclusively for people who want to try typing on my board (they don't know Colemak-DH)." >}}
 
 Thus, really, keeping it within the hardware is less work by a massive margin.
 
-### Two Layouts at Once
+### Knowing Several Keyboard Layouts
 
 {{< quote cite="–stevep99, some guy on the Colemak forums" url="https://forum.colemak.com/topic/2817-help-on-how-to-keep-both-colemakdh-and-qwerty/" >}}
 "People have reported success in […] maintaining both layouts. I've heard of people using psychological hacks to assist with the context switching, for example, using Qwerty on a traditional row-staggered board, and Colemak(-DH) exclusively on an ortholinear. Or, using one layout at home and one at work."
@@ -143,8 +143,8 @@ A trackball is a sphere instead of a moulded right-handed shape, so its perfect 
 - **[keybr](https://keybr.com/)**: teaches a new layout letter by letter rather than throwing the whole alphabet at you on day one. This is what got me to 50 WPM.
 - **[Monkeytype](https://monkeytype.com/)**: for measuring, once you can bear to look.
 
-### Takeaway
+### Conclusion
 
-Erm, well, I am still ~20 WPM slower on the Cornix than I am on a QWERTY keyboard, but I have stopped caring about that. Speed was just the thing I could measure, so it became the thing I measured; but that isn't too important to as much as it was anymore. What actually changed is that my hands no longer really go anywhere. Two thirds of my keypresses land where my fingers already are. It's very comfy, and the rolls are addictive. It makes typing fun.
+I am unfortunately still ~20 WPM slower on the Cornix than I am on a QWERTY keyboard, but I don't mind. I think I will get up to speed eventually, especially if I put in a little bit more targeted practice. Colemak-DH is nice enough with its rolls that typing has become a little Zen activity that I do for fun now.
 
-At the end of the day, though, I know that I could have kept QWERTY on this board and still gained most of what I did. Most of the work was done by the 48-key constraint and by the QMK firmware that made me so engaged in the project of switching over; the rest was a couple of months of patience and gaining the muscle memory. In short: I love Colemak-DH. I love my Cornix. And I love you, reader. Thanks.
+I guess it is kind of like learning a new instrument. You just build up muscle-memory, learn some weird tricks and, in this case, ergonomic theory/hacks. I enjoyed the process, but I can't say that it's for everyone. I think for next time I will just learn an actual instrument though, or something comperable; I feel a keyboard layout is just a little bit too private (*"I learned this keyboard layout and all I got was this lousy article"*)! In short: I love my Cornix. Thanks.
