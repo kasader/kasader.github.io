@@ -4,6 +4,9 @@ title: "Casaderic Compendivm"
 theme: "github.com/frjo/hugo-theme-zen/v7"
 locale: "en-US"
 defaultContentLanguage: "en"
+# Front-matter dates without a zone are read as Tokyo time (Hugo defaults to
+# UTC), so a post dated "today" isn't treated as future-dated and skipped.
+timeZone: "Asia/Tokyo"
 summaryLength: 25
 
 # Class-based highlighting (Hugo defaults to inline monokai styles, which
